@@ -5,9 +5,15 @@ import mindustry.world.blocks.environment.*;
 
 public class RCBlocks{
     public static Block
-    cherryGrass;
+    cherryGrass,
+    
+    cherryWall;
 
     public static void load(){
         cherryGrass = new Floor("cherry-grass");
+
+        cherryWall = new StaticWall("cherry-wall"){{
+            variants = 3;
+        }};
     }
 }
