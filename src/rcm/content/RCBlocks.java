@@ -1,7 +1,7 @@
 package rcm.content;
 
 import mindustry.world.*;
-import mindustry.world.environment.*;
+import mindustry.world.blocks.environment.*;
 
 public class RCBlocks{
     public static Block
