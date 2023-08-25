@@ -3,6 +3,7 @@ package rcm.entities.unit;
 import arc.math.*;
 import arc.util.*;
 import mindustry.gen.*;
+import rcm.content.*;
 import rcm.type.unit.*;
 
 public class NeckUnit extends LegsUnit{
