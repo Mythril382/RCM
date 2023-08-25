@@ -53,8 +53,10 @@ public class NeckUnitType extends UnitType{
         
         hx = x2 + Angles.trnsx(neck.neckRot, headOffset),
         hy = y2 + Angles.trnsy(neck.neckRot, headOffset);
-        
+
+        Lines.stroke(neckOutlineRegion.height * 0.25f);
         Lines.line(neckOutlineRegion, x, y, x2, y2, false);
+        Lines.stroke(neckRegion.height * 0.25f);
         Lines.line(neckRegion, x, y, x2, y2, false);
         
         Draw.rect(headOutlineRegion, hx, hy, neck.neckRot);
