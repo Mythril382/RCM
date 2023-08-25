@@ -43,7 +43,7 @@ public class NeckUnit extends LegsUnit{
     /*
     @Override
     public int classId(){
-        return RCUnits.classID(NeckUnit.class);
+        return RCUnitTypes.classID(NeckUnit.class);
     }
     */
 }
