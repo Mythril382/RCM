@@ -7,7 +7,6 @@ import rcm.content.*;
 import rcm.type.unit.*;
 
 public class NeckUnit extends LegsUnit{
-    public float neckResetTimer = 0f;
     public float neckRot;
     
     @Override
@@ -25,16 +24,9 @@ public class NeckUnit extends LegsUnit{
     @Override
     public void update(){
         super.update();
-        neckResetTimer += Time.delta;
-        if(moving()) neckResetTimer = 0f;
-        
         NeckUnitType neck = (NeckUnitType)type;
         neckRot = Angles.clampRange(neckRot, rotation, neck.neckTrns);
-        
-        if(neckResetTimer > neck.neckReset){
-            neckRot = Angles.moveToward(neckRot, rotation, neck.neckSpeed);
-            neckResetTimer = 0f;
-        }
+        neckRot = Angles.moveToward(neckRot, rotation, neck.neckSpeed);
     }
 
     public static NeckUnit create(){
