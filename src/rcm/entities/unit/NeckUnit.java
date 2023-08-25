@@ -35,4 +35,15 @@ public class NeckUnit extends LegsUnit{
             neckResetTimer = 0f;
         }
     }
+
+    public static NeckUnit create(){
+        return new NeckUnit();
+    }
+
+    /*
+    @Override
+    public int classId(){
+        return RCUnits.classID(NeckUnit.class);
+    }
+    */
 }
