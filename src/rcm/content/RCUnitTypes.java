@@ -32,7 +32,7 @@ public class RCUnitTypes{
             lockLegBase = true;
             legContinuousMove = true;
             allowLegStep = true;
-            groundLayer = Layer.legUnit + 1f;
+            groundLayer = Layer.legUnit - 0.1f;
             outlineColor = Color.valueOf("332480");
             constructor = NeckUnit::create;
         }};
