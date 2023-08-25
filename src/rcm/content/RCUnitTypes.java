@@ -21,10 +21,11 @@ public class RCUnitTypes{
             drag = 0.4f;
             hitSize = 12f;
             rotateSpeed = 3f;
-            legCount = 6;
+            legCount = 8;
             legLength = 16f;
             legExtension = -3f;
             legStraightness = 0.2f;
+            legGroupSize = 4;
             neckLength = 9f;
             neckOffset = 5.75f;
             lockLegBase = true;
