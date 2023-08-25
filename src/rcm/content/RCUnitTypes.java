@@ -3,6 +3,7 @@ package rcm.content;
 import arc.graphics.*;
 import mindustry.graphics.*;
 import mindustry.type.*;
+import rcm.entities.unit.*;
 import rcm.type.unit.*;
 
 public class RCUnitTypes{
@@ -27,6 +28,7 @@ public class RCUnitTypes{
             allowLegStep = true;
             groundLayer = Layer.legUnit + 1f;
             outlineColor = Color.valueOf("332480");
+            constructor = NeckUnit::create();
         }};
     }
 }
