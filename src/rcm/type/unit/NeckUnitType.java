@@ -15,13 +15,12 @@ public class NeckUnitType extends UnitType{
     /** Amount of rotation required for neck to be pulled along with the body. */
     public float neckTrns = 45f;
     /** Speed of neck. */
-    public float neckSpeed = 0.3f;
+    public float neckSpeed = 0.5f;
     /** Offset of head to neck. */
     public float headOffset = 0f;
     
     public TextureRegion
-    neckRegion, headRegion,
-    neckOutlineRegion, headOutlineRegion;
+    neckRegion, headRegion;
     
     public NeckUnitType(String name){
         super(name);
@@ -32,8 +31,6 @@ public class NeckUnitType extends UnitType{
         super.load();
         neckRegion = Core.atlas.find(name + "-neck");
         headRegion = Core.atlas.find(name + "-head");
-        neckOutlineRegion = Core.atlas.find(name + "-neck-outline");
-        headOutlineRegion = Core.atlas.find(name + "-head-outline");
     }
     
     @Override
@@ -54,12 +51,9 @@ public class NeckUnitType extends UnitType{
         hx = x2 + Angles.trnsx(neck.neckRot, headOffset),
         hy = y2 + Angles.trnsy(neck.neckRot, headOffset);
 
-        Lines.stroke(neckOutlineRegion.height * 0.25f);
-        Lines.line(neckOutlineRegion, x, y, x2, y2, false);
         Lines.stroke(neckRegion.height * 0.25f);
         Lines.line(neckRegion, x, y, x2, y2, false);
         
-        Draw.rect(headOutlineRegion, hx, hy, neck.neckRot);
         Draw.rect(headRegion, hx, hy, neck.neckRot);
     }
 }
