@@ -27,7 +27,6 @@ public class NeckUnitType extends UnitType{
     
     public NeckUnitType(String name){
         super(name);
-        constructor = NeckUnit::create;
     }
     
     @Override
