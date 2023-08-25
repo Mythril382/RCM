@@ -31,7 +31,7 @@ public class NeckUnit extends LegsUnit{
         neckRot = Angles.clampRange(neckRot, rotation, neck.neckTrns);
         
         if(neckResetTimer > neck.neckReset){
-            neckRot = Angles.moveToward(neckRot, rotation, neck.neckSperd);
+            neckRot = Angles.moveToward(neckRot, rotation, neck.neckSpeed);
             neckResetTimer = 0f;
         }
     }
