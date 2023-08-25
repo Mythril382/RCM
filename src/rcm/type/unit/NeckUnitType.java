@@ -25,7 +25,7 @@ public class NeckUnitType extends UnitType{
     neckRegion, headRegion,
     neckOutlineRegion, headOutlineRegion;
     
-    public NeckUnitType(name){
+    public NeckUnitType(String name){
         super(name);
         constructor = NeckUnit::create;
     }
