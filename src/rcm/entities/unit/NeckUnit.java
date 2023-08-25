@@ -40,10 +40,8 @@ public class NeckUnit extends LegsUnit{
         return new NeckUnit();
     }
 
-    /*
     @Override
     public int classId(){
         return RCUnitTypes.classID(NeckUnit.class);
     }
-    */
 }
