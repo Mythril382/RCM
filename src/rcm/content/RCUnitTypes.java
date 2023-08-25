@@ -26,7 +26,8 @@ public class RCUnitTypes{
             legExtension = -3f;
             legStraightness = 0.2f;
             legGroupSize = 4;
-            neckLength = 9f;
+            neckLength = 8.45f;
+            neckSpeed = 1f;
             neckOffset = 5.75f;
             lockLegBase = true;
             legContinuousMove = true;
