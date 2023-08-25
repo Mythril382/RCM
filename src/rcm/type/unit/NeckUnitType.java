@@ -15,9 +15,7 @@ public class NeckUnitType extends UnitType{
     /** Amount of rotation required for neck to be pulled along with the body. */
     public float neckTrns = 45f;
     /** Speed of neck. */
-    public float neckSpeed = 1f;
-    /** Time until neck attempts to reset to straight position. */
-    public float neckReset = 60f;
+    public float neckSpeed = 0.3f;
     /** Offset of head to neck. */
     public float headOffset = 0f;
     
