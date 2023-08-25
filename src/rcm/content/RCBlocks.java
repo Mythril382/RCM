@@ -7,7 +7,9 @@ public class RCBlocks{
     public static Block
     cherryGrass,
     
-    cherryWall;
+    cherryWall,
+    
+    cherryTush;
 
     public static void load(){
         cherryGrass = new Floor("cherry-grass");
@@ -15,5 +17,7 @@ public class RCBlocks{
         cherryWall = new StaticWall("cherry-wall"){{
             variants = 3;
         }};
+
+        cherryTush = new TreeBlock("cherry-tush");
     }
 }
