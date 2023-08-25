@@ -28,7 +28,7 @@ public class RCUnitTypes{
             allowLegStep = true;
             groundLayer = Layer.legUnit + 1f;
             outlineColor = Color.valueOf("332480");
-            constructor = NeckUnit::create();
+            constructor = NeckUnit::create;
         }};
     }
 }
