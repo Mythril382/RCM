@@ -26,7 +26,8 @@ public class NeckUnit extends LegsUnit{
         super.update();
         NeckUnitType neck = (NeckUnitType)type;
         neckRot = Angles.clampRange(neckRot, rotation, neck.neckTrns);
-        neckRot = Angles.moveToward(neckRot, rotation, neck.neckSpeed);
+        float neckAngle = Angles.angle(x, y, aimX(), aimY());
+        neckRot = Angles.moveToward(neckRot, neckAngle, neck.neckSpeed);
     }
 
     public static NeckUnit create(){
