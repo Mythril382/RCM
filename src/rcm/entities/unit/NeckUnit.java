@@ -54,7 +54,7 @@ public class NeckUnit extends LegsUnit{
             NeckUnitType neck = (NeckUnitType)type;
             drownTime -= Time.delta / 50f;
             if(neck.maxDrown > 0f && neck.maxDrown < 0.999f){
-                Math.min(drownTime, neck.maxDrown);
+                drownTime = Math.min(drownTime, neck.maxDrown);
             }
         }
 
