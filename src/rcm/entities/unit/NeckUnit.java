@@ -3,6 +3,7 @@ package rcm.entities.unit;
 import arc.*;
 import arc.math.*;
 import arc.util.*;
+import mindustry.game.EventType.*;
 import mindustry.gen.*;
 import mindustry.world.blocks.environment.*;
 import rcm.content.*;
@@ -48,9 +49,10 @@ public class NeckUnit extends LegsUnit{
                 Events.fire(new UnitDrownEvent(self()));
             }
         }else{
+            NeckUnitType neck = (NeckUnitType)type;
             drownTime -= Time.delta / 50f;
-            if(type.maxDrown > 0f && type.maxDrown < 0.999f){
-                Math.min(drownTime, type.maxDrown);
+            if(neck.maxDrown > 0f && neck.maxDrown < 0.999f){
+                Math.min(drownTime, neck.maxDrown);
             }
         }
 
