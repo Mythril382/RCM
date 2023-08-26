@@ -32,7 +32,7 @@ public class NeckUnit extends LegsUnit{
         NeckUnitType neck = (NeckUnitType)type;
         neckRot = Angles.clampRange(neckRot, rotation, neck.neckTrns);
         float neckAngle = Angles.angle(x, y, aimX(), aimY());
-        neckRot = Angles.moveToward(neckRot, neckAngle, neck.neckSpeed);
+        neckRot = Angles.moveToward(neckRot, neckAngle, neck.neckSpeed * Time.delta);
     }
     
     @Override
