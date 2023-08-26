@@ -21,6 +21,7 @@ public class RCUnitTypes{
             drag = 0.4f;
             hitSize = 12f;
             rotateSpeed = 3f;
+            maxDrown = 0.8f;
             legCount = 8;
             legLength = 16f;
             legExtension = -3f;
@@ -31,7 +32,8 @@ public class RCUnitTypes{
             neckLength = 8.45f;
             neckSpeed = 2f;
             neckOffset = 4f;
-            headOffset = 5f;
+            headOffset = 4f;
+            longNeck = true;
             lockLegBase = true;
             legContinuousMove = true;
             allowLegStep = true;
