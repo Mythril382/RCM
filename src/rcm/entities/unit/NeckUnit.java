@@ -41,7 +41,13 @@ public class NeckUnit extends LegsUnit{
 
         if(floor != null && floor.isLiquid && floor.drownTime > 0){
             lastDrownFloor = floor;
+            
             drownTime += Time.delta / floor.drownTime / type.drownTimeMultiplier;
+            NeckUnitType neck = (NeckUnitType)type;
+            if(neck.maxDrown > 0f && neck.maxDrown < 0.999f){
+                drownTime = Math.min(drownTime, neck.maxDrown);
+            }
+            
             if(Mathf.chanceDelta(0.05f)){
                 floor.drownUpdateEffect.at(x, y, hitSize, floor.mapColor);
             }
@@ -51,11 +57,7 @@ public class NeckUnit extends LegsUnit{
                 Events.fire(new UnitDrownEvent(self()));
             }
         }else{
-            NeckUnitType neck = (NeckUnitType)type;
             drownTime -= Time.delta / 50f;
-            if(neck.maxDrown > 0f && neck.maxDrown < 0.999f){
-                drownTime = Math.min(drownTime, neck.maxDrown);
-            }
         }
 
         drownTime = Mathf.clamp(drownTime);
