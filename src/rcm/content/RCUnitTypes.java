@@ -17,7 +17,7 @@ public class RCUnitTypes{
     public static void load(){
         neckranea = new NeckUnitType("neckranea"){{
             health = 1800;
-            speed = 0.4f;
+            speed = 0.7f;
             drag = 0.4f;
             hitSize = 12f;
             rotateSpeed = 3f;
@@ -25,10 +25,12 @@ public class RCUnitTypes{
             legLength = 16f;
             legExtension = -3f;
             legStraightness = 0.2f;
-            legGroupSize = 4;
+            legMoveSpace = 0.7f;
+            legGroupSize = 2;
+            legBaseOffset = 2f;
             neckLength = 8.45f;
-            neckSpeed = 1f;
-            neckOffset = 5f;
+            neckSpeed = 2f;
+            neckOffset = 4f;
             lockLegBase = true;
             legContinuousMove = true;
             allowLegStep = true;
