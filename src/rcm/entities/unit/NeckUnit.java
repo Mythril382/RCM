@@ -9,6 +9,8 @@ import mindustry.world.blocks.environment.*;
 import rcm.content.*;
 import rcm.type.unit.*;
 
+import static mindustry.Vars.*;
+
 public class NeckUnit extends LegsUnit{
     public float neckRot;
     
