@@ -5,11 +5,9 @@ import mindustry.world.blocks.environment.*;
 
 public class RCBlocks{
     public static Block
-    cherryGrass,
-    cherrySand,
+    cherryGrass, cherrySand,
     
-    cherryWall,
-    cherryDune,
+    cherryWall, cherryDune,
     
     cherryTush;
 
