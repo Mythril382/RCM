@@ -1,8 +1,10 @@
 package rcm.type.unit;
 
 import arc.*;
+import arc.graphics.*;
 import arc.graphics.g2d.*;
 import arc.math.*;
+import arc.util.*;
 import mindustry.gen.*;
 import mindustry.type.*;
 import rcm.entities.unit.*;
@@ -46,6 +48,8 @@ public class NeckUnitType extends UnitType{
     }
     
     public void drawNeck(NeckUnit neck){
+        applyColorNeck(NeckUnit neck);
+        
         float
         x = neck.x + Angles.trnsx(neck.rotation, neckOffset),
         y = neck.y + Angles.trnsy(neck.rotation, neckOffset),
@@ -59,5 +63,20 @@ public class NeckUnitType extends UnitType{
         Lines.line(neckRegion, x, y, x2, y2, false);
         
         Draw.rect(headRegion, hx, hy, neck.neckRot);
+        
+        Draw.reset();
+    }
+    
+    public void applyColorNeck(Unit unit){
+        Draw.color();
+        if(healFlash){
+            Tmp.c1.set(Color.white).lerp(healColor, Mathf.clamp(unit.healTime - unit.hitTime));
+        }
+        Draw.mixcol(Tmp.c1, Math.max(unit.hitTime, !healFlash ? 0f : Mathf.clamp(unit.healTime)));
+        
+        if(longNeck) return;
+        if(unit.drownTime > 0 && unit.lastDrownFloor != null){
+            Draw.mixcol(Tmp.c1.set(unit.lastDrownFloor.mapColor).mul(0.83f), unit.drownTime * 0.9f);
+        }
     }
 }
