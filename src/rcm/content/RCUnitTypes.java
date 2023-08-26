@@ -12,22 +12,22 @@ import rcm.type.unit.*;
 
 public class RCUnitTypes{
     public static UnitType
-    neckranea;
+    neckranea, cherryCrawler;
     
     public static void load(){
         neckranea = new NeckUnitType("neckranea"){{
-            health = 1800;
+            health = 1000;
             speed = 0.7f;
             drag = 0.4f;
             hitSize = 12f;
             rotateSpeed = 3f;
             maxDrown = 0.8f;
             legCount = 8;
+            legGroupSize = 2;
             legLength = 16f;
             legExtension = -3f;
             legStraightness = 0.2f;
             legMoveSpace = 0.7f;
-            legGroupSize = 2;
             legBaseOffset = 2f;
             neckLength = 8.45f;
             neckSpeed = 2f;
@@ -38,9 +38,33 @@ public class RCUnitTypes{
             legContinuousMove = true;
             allowLegStep = true;
             hovering = true;
-            groundLayer = Layer.legUnit - 0.1f;
+            hidden = true;
+            useUnitCap = false;
             outlineColor = Color.valueOf("332480");
             constructor = NeckUnit::create;
+        }};
+        
+        cherryCrawler = new UnitType("cherry-crawler"){{
+            health = 1600;
+            speed = 0.8f;
+            drag = 0.5f;
+            hitSize = 10f;
+            rotateSpeed = 4.5f;
+            legCount = 6;
+            legGroupSize = 2;
+            legLength = 10f;
+            legExtension = -3f;
+            legStraightness = 0.3f;
+            legMoveSpace = 0.6f;
+            legBaseOffset = 2f;
+            lockLegBase = true;
+            legContinuousMove = true;
+            allowLegStep = true;
+            hovering = true;
+            hidden = true;
+            useUnitCap = false;
+            outlineColor = Color.valueOf("b54a58");
+            constructor = LegsUnit::create;
         }};
     }
     
