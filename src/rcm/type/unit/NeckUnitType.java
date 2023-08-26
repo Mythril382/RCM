@@ -18,6 +18,10 @@ public class NeckUnitType extends UnitType{
     public float neckSpeed = 0.5f;
     /** Offset of head to neck. */
     public float headOffset = 0f;
+    /** If enabled, the unit will not render it's neck the same color as it's body when drowning. */
+    public boolean longNeck = false;
+    /** Maximum drown time. If enabled, unit will never drown. Set to <=0f or >=0.999f to disable. */
+    public float maxDrown = 0.999f;
     
     public TextureRegion
     neckRegion, headRegion;
