@@ -48,7 +48,7 @@ public class NeckUnitType extends UnitType{
     }
     
     public void drawNeck(NeckUnit neck){
-        applyColorNeck(NeckUnit neck);
+        applyColorNeck(neck);
         
         float
         x = neck.x + Angles.trnsx(neck.rotation, neckOffset),
