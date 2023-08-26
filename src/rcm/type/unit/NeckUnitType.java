@@ -24,9 +24,6 @@ public class NeckUnitType extends UnitType{
     public float headOffset = 0f;
     /** If enabled, the unit will not render it's neck the same color as it's body when drowning. */
     public boolean longNeck = false;
-    /** Interpolation for neck movement. */
-    public Interp interp = Interp.linear;
-    
     
     public TextureRegion
     neckRegion, headRegion;
