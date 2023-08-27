@@ -53,6 +53,13 @@ public class WingUnitType extends UnitType{
     public void drawWings(Unit unit){
         wings.each(w -> w.draw(unit));
     }
+
+    @Override
+    public void drawShadow(Unit unit){
+        super.drawShadow(unit);
+
+        wings.each(w -> w.drawShadow(unit));
+    }
     
     public static class Wing implements Cloneable{
         /** Sprite suffix.*/
@@ -108,8 +115,8 @@ public class WingUnitType extends UnitType{
             wy = unit.y + Angles.trnsy(unit.rotation, x, y),
             length = (width + Mathf.absin(Time.time, flapScl, flapMag)) * (flip ? -1f : 1f),
             
-            ex = wx + Angles.trnsx(unit.rotation + (flip ? rotation : -rotation), length),
-            ey = wy + Angles.trnsy(unit.rotation + (flip ? rotation : -rotation), length);
+            ex = wx + Angles.trnsx((unit.rotation - 90f) + (flip ? rotation : -rotation), length),
+            ey = wy + Angles.trnsy((unit.rotation - 90f) + (flip ? rotation : -rotation), length);
             
             Lines.stroke(region.height * 0.25f);
             Lines.line(flip ? flipRegion : region, wx, wy, ex, ey, false);
@@ -128,8 +135,8 @@ public class WingUnitType extends UnitType{
             wy = sy + Angles.trnsy(unit.rotation, x, y),
             length = (width + Mathf.absin(Time.time, flapScl, flapMag)) * (flip ? -1f : 1f),
             
-            ex = wx + Angles.trnsx(unit.rotation + (flip ? rotation : -rotation), length),
-            ey = wy + Angles.trnsy(unit.rotation + (flip ? rotation : -rotation), length);
+            ex = wx + Angles.trnsx((unit.rotation - 90f) + (flip ? rotation : -rotation), length),
+            ey = wy + Angles.trnsy((unit.rotation - 90f) + (flip ? rotation : -rotation), length);
             
             Lines.stroke(region.height * 0.25f);
             Lines.line(region, wx, wy, ex, ey, false);
