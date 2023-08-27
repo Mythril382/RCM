@@ -116,6 +116,26 @@ public class WingUnitType extends UnitType{
             Draw.reset();
         }
         
+        public void drawShadow(Unit unit){
+            float e = Mathf.clamp(unit.elevation, shadowElevation, 1f) * shadowElevationScl * (1f - unit.drownTime);
+            float sx = unit.x + UnitType.shadowTX * e, sy = unit.y + UnitType.shadowTY * e;
+            
+            Draw.color(Pal.shadow.a, Pal.shadow.a * unit.shadowAlpha);
+            
+            float
+            wx = sx + Angles.trnsx(unit.rotation, x, y),
+            wy = sy + Angles.trnsy(unit.rotation, x, y),
+            length = (width + Mathf.absin(Time.time, flapScl, flapMag)) * (flip ? -1f : 1f),
+            
+            ex = wx + Angles.trnsx(rotation, length),
+            ey = wy + Angles.trnsy(rotation, length);
+            
+            Lines.stroke(region.height * 0.25f);
+            Lines.line(region, wx, wy, ex, ey, false);
+            
+            Draw.reset();
+        }
+        
         public Wing copy(){
             try{
                 return (Wing)clone();

@@ -6,6 +6,7 @@ import arc.graphics.g2d.*;
 import arc.math.*;
 import arc.util.*;
 import mindustry.gen.*;
+import mindustry.graphics.*;
 import mindustry.type.*;
 import rcm.entities.unit.*;
 
@@ -65,6 +66,33 @@ public class NeckUnitType extends UnitType{
         Draw.rect(headRegion, hx, hy, neck.neckRot);
         
         Draw.reset();
+    }
+    
+    @Override
+    public void drawShadow(Unit unit){
+        super.drawShadow(unit);
+        
+        float e = Mathf.clamp(unit.elevation, shadowElevation, 1f) * shadowElevationScl * (1f - unit.drownTime);
+        float sx = unit.x + UnitType.shadowTX * e, sy = unit.y + UnitType.shadowTY * e;
+        
+        Draw.color(Pal.shadow.a, Pal.shadow.a * unit.shadowAlpha);
+        
+        NeckUnit neck = (NeckUnit)unit;
+        float
+        x = sx + Angles.trnsx(neck.rotation, neckOffset),
+        y = sy + Angles.trnsy(neck.rotation, neckOffset),
+        x2 = x + Angles.trnsx(neck.neckRot, neckLength),
+        y2 = y + Angles.trnsy(neck.neckRot, neckLength),
+        
+        hx = x2 + Angles.trnsx(neck.neckRot, headOffset),
+        hy = y2 + Angles.trnsy(neck.neckRot, headOffset);
+
+        Lines.stroke(neckRegion.height * 0.25f);
+        Lines.line(neckRegion, x, y, x2, y2, false);
+        
+        Draw.rect(headRegion, hx, hy, neck.neckRot);
+        
+        Draw.color();
     }
     
     public void applyColorNeck(Unit unit){
