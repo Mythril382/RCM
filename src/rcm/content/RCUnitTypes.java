@@ -73,10 +73,10 @@ public class RCUnitTypes{
             }});
             
             parts.add(new RegionPart("-glow"){{
-                layer = -1f;
+                layer = Layer.flyingUnit + 0.002f;
                 outline = false;
                 blending = Blending.additive;
-                color = Color.valueOf("d7a4f5");
+                color = Color.valueOf("d7a4f5").a(0.5f);
             }});
         }};
         
