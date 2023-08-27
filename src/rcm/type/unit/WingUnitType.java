@@ -118,7 +118,7 @@ public class WingUnitType extends UnitType{
             ex = wx + Angles.trnsx(urotation + (rotation * -Mathf.sign(flip)), length),
             ey = wy + Angles.trnsy(urotation + (rotation * -Mathf.sign(flip)), length);
             
-            Lines.stroke(region.height * 0.25f * -Mathf.sign(flip);
+            Lines.stroke(region.height * 0.25f * -Mathf.sign(flip));
             Lines.line(region, wx, wy, ex, ey, false);
             
             Draw.reset();
