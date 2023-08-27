@@ -95,7 +95,7 @@ public class WingUnitType extends UnitType{
             region = Core.atlas.find(unit.name + name);
             
             if(width <= 0f) width = region.width * 0.25f;
-            if(flapMag <= 0f) flapMag = width / 2f;
+            if(flapMag <= 0f) flapMag = width / 4f;
         }
         
         public void flip(){
