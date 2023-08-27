@@ -71,6 +71,8 @@ public class NeckUnitType extends UnitType{
     @Override
     public void drawShadow(Unit unit){
         super.drawShadow(unit);
+
+        Draw.blend(Blending.disabled);
         
         float e = Mathf.clamp(unit.elevation, shadowElevation, 1f) * shadowElevationScl * (1f - unit.drownTime);
         float sx = unit.x + UnitType.shadowTX * e, sy = unit.y + UnitType.shadowTY * e;
@@ -92,6 +94,7 @@ public class NeckUnitType extends UnitType{
         
         Draw.rect(headRegion, hx, hy, neck.neckRot);
         
+        Draw.blend();
         Draw.color();
     }
     
