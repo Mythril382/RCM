@@ -81,13 +81,15 @@ public class RCUnitTypes{
             
             weapons.add(new Weapon(){{
                 shootSound = Sounds.none;
-                reload = 30f;
+                reload = 15f;
                 shootCone = 90f;
                 alternate = false;
                 rotate = false;
                 
                 bullet = new RailBulletType(){{
                     length = 4f;
+                    shootEffect = Fx.none;
+                    smokeEffect = Fx.none;
                     pierceEffect = Fx.none;
                     damage = 20f;
                 }};
