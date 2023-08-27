@@ -62,6 +62,7 @@ public class RCUnitTypes{
             engineSize = 0f;
             hitSize = 1.5f;
             flying = true;
+            hidden = true;
             outlineColor = Color.valueOf("121775");
             
             wings.add(new Wing("-wing"){{
