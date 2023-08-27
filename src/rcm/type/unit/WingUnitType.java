@@ -74,7 +74,7 @@ public class WingUnitType extends UnitType{
         /** Internal use only. Determines if wing is mirrored. */
         public boolean flip = false;
         
-        public TextureRegion region;
+        public TextureRegion region, flipRegion;
         
         public Wing(String name){
             this.name = name;
@@ -86,9 +86,10 @@ public class WingUnitType extends UnitType{
         
         public void load(UnitType unit){
             region = Core.atlas.find(unit.name + name);
+            flipRegion = Core.atlas.find(unit.name + name + "-flip");
             
             if(width <= 0f) width = region.width * 0.25f;
-            if(flapMag <= 0f) flapMag = width / 4f;
+            if(flapMag <= 0f) flapMag = width / 6f;
         }
         
         public void flip(){
@@ -107,11 +108,11 @@ public class WingUnitType extends UnitType{
             wy = unit.y + Angles.trnsy(unit.rotation, x, y),
             length = (width + Mathf.absin(Time.time, flapScl, flapMag)) * (flip ? -1f : 1f),
             
-            ex = wx + Angles.trnsx(rotation, length),
-            ey = wy + Angles.trnsy(rotation, length);
+            ex = wx + Angles.trnsx(unit.rotation + (flip ? rotation : -rotation), length),
+            ey = wy + Angles.trnsy(unit.rotation + (flip ? rotation : -rotation), length);
             
             Lines.stroke(region.height * 0.25f);
-            Lines.line(region, wx, wy, ex, ey, false);
+            Lines.line(flip ? flipRegion : region, wx, wy, ex, ey, false);
             
             Draw.reset();
         }
@@ -127,8 +128,8 @@ public class WingUnitType extends UnitType{
             wy = sy + Angles.trnsy(unit.rotation, x, y),
             length = (width + Mathf.absin(Time.time, flapScl, flapMag)) * (flip ? -1f : 1f),
             
-            ex = wx + Angles.trnsx(rotation, length),
-            ey = wy + Angles.trnsy(rotation, length);
+            ex = wx + Angles.trnsx(unit.rotation + (flip ? rotation : -rotation), length),
+            ey = wy + Angles.trnsy(unit.rotation + (flip ? rotation : -rotation), length);
             
             Lines.stroke(region.height * 0.25f);
             Lines.line(region, wx, wy, ex, ey, false);
