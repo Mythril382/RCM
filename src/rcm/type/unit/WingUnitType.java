@@ -113,12 +113,12 @@ public class WingUnitType extends UnitType{
             urotation = unit.rotation - 90f,
             wx = unit.x + Angles.trnsx(urotation, x, y),
             wy = unit.y + Angles.trnsy(rotation, x, y),
-            length = (width + Mathf.absin(Time.time, flapScl, flapMag)) * (flip ? -1f : 1f),
+            length = (width + Mathf.absin(Time.time, flapScl, flapMag)) * -Mathf.sign(flip),
             
-            ex = wx + Angles.trnsx(urotation + (flip ? rotation : -rotation), length),
-            ey = wy + Angles.trnsy(urotation + (flip ? rotation : -rotation), length);
+            ex = wx + Angles.trnsx(urotation + (rotation * -Mathf.sign(flip)), length),
+            ey = wy + Angles.trnsy(urotation + (rotation * -Mathf.sign(flip)), length);
             
-            Lines.stroke(region.height * 0.25f * (flip ? -1f : 1f));
+            Lines.stroke(region.height * 0.25f * -Mathf.sign(flip);
             Lines.line(region, wx, wy, ex, ey, false);
             
             Draw.reset();
@@ -134,14 +134,16 @@ public class WingUnitType extends UnitType{
             urotation = unit.rotation - 90f,
             wx = sx + Angles.trnsx(urotation, x, y),
             wy = sy + Angles.trnsy(urotation, x, y),
-            length = (width + Mathf.absin(Time.time, flapScl, flapMag)) * (flip ? -1f : 1f),
+            length = (width + Mathf.absin(Time.time, flapScl, flapMag)) * -Mathf.sign(flip),
             
-            ex = wx + Angles.trnsx(urotation + (flip ? rotation : -rotation), length),
-            ey = wy + Angles.trnsy(urotation + (flip ? rotation : -rotation), length);
+            ex = wx + Angles.trnsx(urotation + (rotation * -Mathf.sign(flip)), length),
+            ey = wy + Angles.trnsy(urotation + (rotation * -Mathf.sign(flip)), length);
             
-            Lines.stroke(region.height * 0.25f * (flip ? -1f : 1f));
+            Lines.stroke(region.height * 0.25f * -Mathf.sign(flip));
+            
             Lines.line(region, wx, wy, ex, ey, false);
-
+            
+            Draw.xscl = 1f;
             Lines.stroke(1f);
             Draw.color();
         }
