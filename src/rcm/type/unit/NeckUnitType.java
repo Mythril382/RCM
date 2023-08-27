@@ -75,7 +75,7 @@ public class NeckUnitType extends UnitType{
         float e = Mathf.clamp(unit.elevation, shadowElevation, 1f) * shadowElevationScl * (1f - unit.drownTime);
         float sx = unit.x + UnitType.shadowTX * e, sy = unit.y + UnitType.shadowTY * e;
         
-        Draw.color(Pal.shadow.a, Pal.shadow.a * unit.shadowAlpha);
+        Draw.color(Pal.shadow, Pal.shadow.a * unit.shadowAlpha);
         
         NeckUnit neck = (NeckUnit)unit;
         float
