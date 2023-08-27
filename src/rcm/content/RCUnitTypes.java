@@ -67,7 +67,7 @@ public class RCUnitTypes{
             constructor = UnitEntity::create;
             
             wings.add(new Wing("-wing"){{
-                x = 0.75f;
+                x = 1f;
                 flapScl = 2f;
                 mirror = true;
             }});
