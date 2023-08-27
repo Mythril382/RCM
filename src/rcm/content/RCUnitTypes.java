@@ -14,6 +14,8 @@ import mindustry.type.*;
 import rcm.entities.unit.*;
 import rcm.type.unit.*;
 
+import static mindustry.Vars.*;
+
 public class RCUnitTypes{
     public static UnitType
     neckranea, cherryCrawler;
@@ -54,6 +56,7 @@ public class RCUnitTypes{
             drag = 0.5f;
             hitSize = 10f;
             rotateSpeed = 4.5f;
+            range = 20f * tilesize;
             legCount = 6;
             legGroupSize = 2;
             legLength = 10f;
