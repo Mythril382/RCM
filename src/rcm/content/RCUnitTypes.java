@@ -4,6 +4,8 @@ import arc.func.*;
 import arc.graphics.*;
 import arc.struct.*;
 import arc.struct.ObjectMap.*;
+import mindustry.entities.part.*;
+import mindustry.entities.part.DrawPart.*;
 import mindustry.gen.*;
 import mindustry.graphics.*;
 import mindustry.type.*;
@@ -65,6 +67,15 @@ public class RCUnitTypes{
             useUnitCap = false;
             outlineColor = Color.valueOf("b54a58");
             constructor = LegsUnit::create;
+            
+            parts.add(new RegionPart("-tooth"){{
+                x = 2f;
+                y = 4f;
+                moveY = 3.5f;
+                layerOffset = -0.001f;
+                progress = PartProgress.reload;
+                mirror = true;
+            }});
         }};
     }
     
