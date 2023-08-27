@@ -4,6 +4,8 @@ import arc.func.*;
 import arc.graphics.*;
 import arc.struct.*;
 import arc.struct.ObjectMap.*;
+import mindustry.content.*;
+import mindustry.entities.bullet.*;
 import mindustry.entities.part.*;
 import mindustry.entities.part.DrawPart.*;
 import mindustry.gen.*;
@@ -75,6 +77,20 @@ public class RCUnitTypes{
                 layerOffset = -0.001f;
                 progress = PartProgress.reload;
                 mirror = true;
+            }});
+            
+            weapons.add(new Weapon(){{
+                shootSound = Sounds.none;
+                reload = 30f;
+                shootCone = 90f;
+                alternate = false;
+                rotate = false;
+                
+                bullet = new RailBulletType(){{
+                    length = 4f;
+                    pierceEffect = Fx.none;
+                    damage = 20f;
+                }};
             }});
         }};
     }
