@@ -64,6 +64,7 @@ public class RCUnitTypes{
             flying = true;
             hidden = true;
             outlineColor = Color.valueOf("121775");
+            constructor = UnitEntity::create;
             
             wings.add(new Wing("-wing"){{
                 x = 0.75f;
