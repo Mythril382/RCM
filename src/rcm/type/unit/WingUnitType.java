@@ -110,12 +110,13 @@ public class WingUnitType extends UnitType{
             Draw.z(layer);
             
             float
-            wx = unit.x + Angles.trnsx(unit.rotation, x, y),
-            wy = unit.y + Angles.trnsy(unit.rotation, x, y),
+            urotation = unit.rotation - 90f,
+            wx = unit.x + Angles.trnsx(urotation, x, y),
+            wy = unit.y + Angles.trnsy(rotation, x, y),
             length = (width + Mathf.absin(Time.time, flapScl, flapMag)) * (flip ? -1f : 1f),
             
-            ex = wx + Angles.trnsx((unit.rotation - 90f) + (flip ? rotation : -rotation), length),
-            ey = wy + Angles.trnsy((unit.rotation - 90f) + (flip ? rotation : -rotation), length);
+            ex = wx + Angles.trnsx(urotation + (flip ? rotation : -rotation), length),
+            ey = wy + Angles.trnsy(urotation + (flip ? rotation : -rotation), length);
             
             Lines.stroke(region.height * 0.25f * (flip ? -1f : 1f));
             Lines.line(region, wx, wy, ex, ey, false);
@@ -130,12 +131,13 @@ public class WingUnitType extends UnitType{
             Draw.color(Pal.shadow, Pal.shadow.a * unit.shadowAlpha);
             
             float
-            wx = sx + Angles.trnsx(unit.rotation, x, y),
-            wy = sy + Angles.trnsy(unit.rotation, x, y),
+            urotation = unit.rotation - 90f,
+            wx = sx + Angles.trnsx(urotation, x, y),
+            wy = sy + Angles.trnsy(urotation, x, y),
             length = (width + Mathf.absin(Time.time, flapScl, flapMag)) * (flip ? -1f : 1f),
             
-            ex = wx + Angles.trnsx((unit.rotation - 90f) + (flip ? rotation : -rotation), length),
-            ey = wy + Angles.trnsy((unit.rotation - 90f) + (flip ? rotation : -rotation), length);
+            ex = wx + Angles.trnsx(urotation + (flip ? rotation : -rotation), length),
+            ey = wy + Angles.trnsy(urotation + (flip ? rotation : -rotation), length);
             
             Lines.stroke(region.height * 0.25f * (flip ? -1f : 1f));
             Lines.line(region, wx, wy, ex, ey, false);
