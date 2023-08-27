@@ -13,16 +13,19 @@ import mindustry.graphics.*;
 import mindustry.type.*;
 import rcm.entities.unit.*;
 import rcm.type.unit.*;
+import rcm.type.unit.WingUnitType.*;
 
 import static mindustry.Vars.*;
 
 public class RCUnitTypes{
     public static UnitType
-    neckranea, cherryCrawler;
+    neckranea, lightBug,
+    cherryCrawler;
     
     public static void load(){
         neckranea = new NeckUnitType("neckranea"){{
             health = 1000;
+            armor = 1;
             speed = 0.7f;
             drag = 0.4f;
             hitSize = 12f;
@@ -39,6 +42,7 @@ public class RCUnitTypes{
             neckSpeed = 2f;
             neckOffset = 4f;
             headOffset = 4f;
+            shadowElevation = 0.2f;
             longNeck = true;
             lockLegBase = true;
             legContinuousMove = true;
@@ -50,8 +54,33 @@ public class RCUnitTypes{
             constructor = NeckUnit::create;
         }};
         
+        lightBug = new WingUnitType("light-bug"){{
+            health = 10;
+            speed = 3f;
+            accel = 0.06f;
+            drag = 0.04f;
+            engineSize = 0f;
+            hitSize = 1.5f;
+            flying = true;
+            outlineColor = Color.valueOf("121775");
+            
+            wings.add(new Wing("-wing"){{
+                x = 0.75f;
+                flapScl = 2f;
+                mirror = true;
+            }});
+            
+            parts.add(new RegionPart("-glow"){{
+                layer = -1f;
+                outline = false;
+                blending = Blending.additive;
+                color = Color.valueOf("d7a4f5");
+            }});
+        }};
+        
         cherryCrawler = new UnitType("cherry-crawler"){{
             health = 1600;
+            armor = 2;
             speed = 0.8f;
             drag = 0.5f;
             hitSize = 10f;
@@ -64,6 +93,7 @@ public class RCUnitTypes{
             legStraightness = 0.3f;
             legMoveSpace = 0.6f;
             legBaseOffset = 2f;
+            shadowElevation = 0.1f;
             lockLegBase = true;
             legContinuousMove = true;
             allowLegStep = true;
