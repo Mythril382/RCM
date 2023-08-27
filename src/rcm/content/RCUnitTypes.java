@@ -63,6 +63,7 @@ public class RCUnitTypes{
             hitSize = 2f;
             lightRadius = 2f * tilesize;
             flying = true;
+            useUnitCap = false;
             hidden = true;
             lightColor = Color.valueOf("d7a4f5");
             outlineColor = Color.valueOf("121775");
@@ -70,7 +71,7 @@ public class RCUnitTypes{
             
             wings.add(new Wing("-wing"){{
                 x = 1f;
-                flapScl = 2f;
+                flapScl = 0.7f;
                 mirror = true;
             }});
             
