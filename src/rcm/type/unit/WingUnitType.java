@@ -112,7 +112,7 @@ public class WingUnitType extends UnitType{
             float
             urotation = unit.rotation - 90f,
             wx = unit.x + Angles.trnsx(urotation, x, y),
-            wy = unit.y + Angles.trnsy(rotation, x, y),
+            wy = unit.y + Angles.trnsy(urotation, x, y),
             length = (width + Mathf.absin(Time.time, flapScl, flapMag)) * -Mathf.sign(flip),
             
             ex = wx + Angles.trnsx(urotation + (rotation * -Mathf.sign(flip)), length),
