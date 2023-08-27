@@ -60,7 +60,7 @@ public class RCUnitTypes{
             accel = 0.06f;
             drag = 0.04f;
             engineSize = 0f;
-            hitSize = 1.5f;
+            hitSize = 2f;
             flying = true;
             hidden = true;
             outlineColor = Color.valueOf("121775");
