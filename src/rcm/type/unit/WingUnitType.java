@@ -143,7 +143,6 @@ public class WingUnitType extends UnitType{
             
             Lines.line(region, wx, wy, ex, ey, false);
             
-            Draw.xscl = 1f;
             Lines.stroke(1f);
             Draw.color();
         }
