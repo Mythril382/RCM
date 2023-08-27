@@ -81,7 +81,7 @@ public class WingUnitType extends UnitType{
         /** Internal use only. Determines if wing is mirrored. */
         public boolean flip = false;
         
-        public TextureRegion region, flipRegion;
+        public TextureRegion region;
         
         public Wing(String name){
             this.name = name;
@@ -93,10 +93,9 @@ public class WingUnitType extends UnitType{
         
         public void load(UnitType unit){
             region = Core.atlas.find(unit.name + name);
-            flipRegion = Core.atlas.find(unit.name + name + "-flip");
             
             if(width <= 0f) width = region.width * 0.25f;
-            if(flapMag <= 0f) flapMag = width / 6f;
+            if(flapMag <= 0f) flapMag = width / 2f;
         }
         
         public void flip(){
@@ -118,8 +117,8 @@ public class WingUnitType extends UnitType{
             ex = wx + Angles.trnsx((unit.rotation - 90f) + (flip ? rotation : -rotation), length),
             ey = wy + Angles.trnsy((unit.rotation - 90f) + (flip ? rotation : -rotation), length);
             
-            Lines.stroke(region.height * 0.25f);
-            Lines.line(flip ? flipRegion : region, wx, wy, ex, ey, false);
+            Lines.stroke(region.height * 0.25f * (flip ? -1f : 1f));
+            Lines.line(region, wx, wy, ex, ey, false);
             
             Draw.reset();
         }
@@ -138,10 +137,11 @@ public class WingUnitType extends UnitType{
             ex = wx + Angles.trnsx((unit.rotation - 90f) + (flip ? rotation : -rotation), length),
             ey = wy + Angles.trnsy((unit.rotation - 90f) + (flip ? rotation : -rotation), length);
             
-            Lines.stroke(region.height * 0.25f);
+            Lines.stroke(region.height * 0.25f * (flip ? -1f : 1f));
             Lines.line(region, wx, wy, ex, ey, false);
-            
-            Draw.reset();
+
+            Lines.stroke(1f);
+            Draw.color();
         }
         
         public Wing copy(){
