@@ -61,8 +61,10 @@ public class RCUnitTypes{
             drag = 0.04f;
             engineSize = 0f;
             hitSize = 2f;
+            lightRadius = 2f * tilesize;
             flying = true;
             hidden = true;
+            lightColor = Color.valueOf("d7a4f5");
             outlineColor = Color.valueOf("121775");
             constructor = UnitEntity::create;
             
