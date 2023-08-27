@@ -125,6 +125,8 @@ public class WingUnitType extends UnitType{
         }
         
         public void drawShadow(Unit unit){
+            Draw.blend(Blending.disabled);
+            
             float e = Mathf.clamp(unit.elevation, unit.type.shadowElevation, 1f) * unit.type.shadowElevationScl * (1f - unit.drownTime);
             float sx = unit.x + UnitType.shadowTX * e, sy = unit.y + UnitType.shadowTY * e;
             
@@ -144,6 +146,7 @@ public class WingUnitType extends UnitType{
             Lines.line(region, wx, wy, ex, ey, false);
             
             Lines.stroke(1f);
+            Draw.blend();
             Draw.color();
         }
         
