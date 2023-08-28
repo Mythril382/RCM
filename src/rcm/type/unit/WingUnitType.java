@@ -69,12 +69,12 @@ public class WingUnitType extends UnitType{
         public float x = 0f, y = 0f;
         /** Wing rotation. */
         public float rotation = 0f;
-        /** Wing width. Set to <=0f to detect from sprite. */
-        public float width = -1f;
+        /** Wing width. Set to 0f to detect from sprite. */
+        public float width = 0f;
         /** Wing flap scale. */
         public float flapScl = 1f;
-        /** Wing flap magnitude. Set to <=0f to detect from width. */
-        public float flapMag = -1f;
+        /** Wing flap magnitude. Set to 0f to detect from width. */
+        public float flapMag = 0f;
         /** Wing draw layer. */
         public float layer = Layer.flyingUnit + 0.001f;
         /** Mirror to opposite side. */
@@ -95,8 +95,8 @@ public class WingUnitType extends UnitType{
         public void load(UnitType unit){
             region = Core.atlas.find(unit.name + name);
             
-            if(width <= 0f) width = region.width * 0.25f;
-            if(flapMag <= 0f) flapMag = width / 4f;
+            if(width == 0f) width = region.width * 0.25f;
+            if(flapMag == 0f) flapMag = width / 4f;
         }
         
         public void flip(){
@@ -126,8 +126,6 @@ public class WingUnitType extends UnitType{
         }
         
         public void drawShadow(Unit unit){
-            Draw.blend(Blending.disabled);
-            
             float e = Mathf.clamp(unit.elevation, unit.type.shadowElevation, 1f) * unit.type.shadowElevationScl * (1f - unit.drownTime);
             float sx = unit.x + UnitType.shadowTX * e, sy = unit.y + UnitType.shadowTY * e;
             
@@ -147,7 +145,6 @@ public class WingUnitType extends UnitType{
             Lines.line(region, wx, wy, ex, ey, false);
             
             Lines.stroke(1f);
-            Draw.blend();
             Draw.color();
         }
         
