@@ -71,7 +71,8 @@ public class RCUnitTypes{
             
             wings.add(new Wing("-wing"){{
                 x = 1f;
-                flapScl = 0.7f;
+                flapScl = 1f;
+                flapMag = -4f;
                 mirror = true;
             }});
             
