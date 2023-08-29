@@ -5,13 +5,18 @@ import mindustry.world.blocks.environment.*;
 
 public class RCBlocks{
     public static Block
+    // cherry
     cherryGrass, cherrySand,
     
     cherryWall, cherryDune,
     
-    cherryTush;
+    cherryTush,
+
+    // blueberry
+    blueberrySnow;
 
     public static void load(){
+        // cherry
         cherryGrass = new Floor("cherry-grass");
 
         cherrySand = new Floor("cherry-sand");
@@ -25,5 +30,8 @@ public class RCBlocks{
         }};
 
         cherryTush = new TreeBlock("cherry-tush");
+
+        // blueberry
+        blueberrySnow = new Floor("blueberry-snow");
     }
 }
