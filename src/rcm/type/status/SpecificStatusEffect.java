@@ -15,7 +15,7 @@ public class SpecificStatusEffect extends StatusEffect{
 
     @Override
     public void init(){
-        content.units().select(u -> !targets.contains(u)).each(u -> u.immunities.add(this));
         super.init();
+        content.units().select(u -> !targets.contains(u)).each(u -> u.immunities.add(this));
     }
 }
