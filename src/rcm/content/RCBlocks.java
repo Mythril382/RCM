@@ -13,7 +13,9 @@ public class RCBlocks{
     cherryTush,
 
     // blueberry
-    blueberrySnow;
+    blueberrySnow,
+    
+    blueberryWall;
 
     public static void load(){
         // cherry
@@ -33,5 +35,9 @@ public class RCBlocks{
 
         // blueberry
         blueberrySnow = new Floor("blueberry-snow");
+
+        blueberryWall = new StaticWall("blueberry-wall"){{
+            variants = 3;
+        }};
     }
 }
