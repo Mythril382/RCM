@@ -127,10 +127,12 @@ public class RCUnitTypes{
                 
                 bullet = new RailBulletType(){{
                     length = 4f;
+                    damage = 20f;
                     shootEffect = Fx.none;
                     smokeEffect = Fx.none;
                     pierceEffect = Fx.none;
-                    damage = 20f;
+                    status = RCStatusEffects.weak;
+                    statusDuration = 60f * 2.5f;
                 }};
             }});
         }};
