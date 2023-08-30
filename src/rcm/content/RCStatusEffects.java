@@ -13,7 +13,7 @@ public class RCStatusEffects{
             speedMultiplier = 0.6f;
             healthMultiplier = 0.8f;
             color = Color.valueOf("b5b5b5");
-            targets.add(RCUnitTypes.neckranea, RCUnitTypes.lightBug);
+            targets.addAll(RCUnitTypes.neckranea, RCUnitTypes.lightBug);
         }};
     }
 }
