@@ -6,8 +6,8 @@ import mindustry.type.*;
 import static mindustry.Vars.*;
 
 public class SpecificStatusEffect extends StatusEffect{
-    /** Specific units that can have this effect applied. */
-    public ObjectSet<UnitType> targets = new Seq<>();
+    /** Specific units that shouldn't have immunity to this effect. */
+    public ObjectSet<UnitType> targets = new ObjectSet<>();
 
     public SpecificStatusEffect(String name){
         super(name);
