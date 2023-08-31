@@ -20,7 +20,7 @@ public class RCEnvRenderers{
     }
     
     public static Color vibrantColor(){
-        float time = state.rules.ambientColor.a;
+        float time = state.rules.ambientLight.a;
         Color color = new Color();
         color.lerp(new Color[]{Color.valueOf("00000000"), Color.valueOf("00000000"), Color.valueOf("f5b56c80"), Color.valueOf("31316380")}, time);
         return color;
