@@ -10,12 +10,11 @@ import static mindustry.Vars.*;
 public class RCEnvRenderers{
     public static void init(){
         renderer.addEnvRenderer(RCEnv.vibrant, () -> {
-            Draw.draw(Layer.light + 1f, () -> {
-                Draw.color(vibrantColor());
-                Draw.blend(Blending.additive);
-                Fill.rect(Core.camera.position.x, Core.camera.position.y, Core.camera.width, Core.camera.height);
-                Draw.reset();
-            });
+            Draw.z(Layer.light + 1f);
+            Draw.color(vibrantColor());
+            Draw.blend(Blending.normal);
+            Fill.rect(Core.camera.position.x, Core.camera.position.y, Core.camera.width, Core.camera.height);
+            Draw.reset();
         });
     }
     
