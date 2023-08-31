@@ -12,7 +12,7 @@ public class RCEnvRenderers{
         renderer.addEnvRenderer(RCEnv.vibrant, () -> {
             Draw.z(Layer.light + 1f);
             Draw.color(vibrantColor());
-            Draw.blend(Blending.normal);
+            Draw.blend();
             Fill.rect(Core.camera.position.x, Core.camera.position.y, Core.camera.width, Core.camera.height);
             Draw.reset();
         });
