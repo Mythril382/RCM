@@ -49,6 +49,7 @@ public class RCUnitTypes{
             allowLegStep = true;
             hovering = true;
             hidden = true;
+            drawCell = false;
             useUnitCap = false;
             outlineColor = Color.valueOf("332480");
             constructor = NeckUnit::create;
@@ -63,8 +64,9 @@ public class RCUnitTypes{
             hitSize = 2f;
             lightRadius = 2f * tilesize;
             flying = true;
-            useUnitCap = false;
             hidden = true;
+            drawCell = false;
+            useUnitCap = false;
             lightColor = Color.valueOf("d7a4f5");
             outlineColor = Color.valueOf("121775");
             constructor = UnitEntity::create;
@@ -105,6 +107,7 @@ public class RCUnitTypes{
             allowLegStep = true;
             hovering = true;
             hidden = true;
+            drawCell = false;
             useUnitCap = false;
             outlineColor = Color.valueOf("b54a58");
             constructor = LegsUnit::create;
