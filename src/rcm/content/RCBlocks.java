@@ -13,7 +13,7 @@ public class RCBlocks{
     cherryTush,
 
     // blueberry
-    blueberrySnow,
+    blueberrySnow, blueberryIce,
     
     blueberryWall;
 
@@ -35,6 +35,10 @@ public class RCBlocks{
 
         // blueberry
         blueberrySnow = new Floor("blueberry-snow");
+
+        blueberryIce = new Floor("blueberry-ice"){{
+            variants = 5;
+        }};
 
         blueberryWall = new StaticWall("blueberry-wall"){{
             variants = 3;
