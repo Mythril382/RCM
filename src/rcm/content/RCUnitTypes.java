@@ -32,7 +32,6 @@ public class RCUnitTypes{
         // fauna
         
         // cherry forest
-        
         neckranea = new NeckUnitType("neckranea"){{
             health = 1000;
             armor = 1;
@@ -97,7 +96,6 @@ public class RCUnitTypes{
         }};
 
         // cherry desert
-        
         cherryCrawler = new UnitType("cherry-crawler"){{
             health = 1600;
             armor = 2;
@@ -153,7 +151,6 @@ public class RCUnitTypes{
         }};
 
         // blueberry blizzards
-        
         kiwi = new NeckUnitType("kiwi"){{
             health = 1800;
             speed = 0.5f;
@@ -165,7 +162,7 @@ public class RCUnitTypes{
             legGroupSize = 2;
             legLength = 25f;
             legExtension = -5f;
-            legStraightness = 0.3f;
+            legStraightness = 0.1f;
             legMoveSpace = 0.8f;
             legBaseOffset = 2f;
             neckLength = 12.5f;
