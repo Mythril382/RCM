@@ -28,6 +28,11 @@ public class RCUnitTypes{
     kiwi;
     
     public static void load(){
+
+        // fauna
+        
+        // cherry forest
+        
         neckranea = new NeckUnitType("neckranea"){{
             health = 1000;
             armor = 1;
@@ -90,6 +95,8 @@ public class RCUnitTypes{
                 color = Color.valueOf("d7a4f5").a(0.5f);
             }});
         }};
+
+        // cherry desert
         
         cherryCrawler = new UnitType("cherry-crawler"){{
             health = 1600;
@@ -144,6 +151,8 @@ public class RCUnitTypes{
                 }};
             }});
         }};
+
+        // blueberry blizzards
         
         kiwi = new NeckUnitType("kiwi"){{
             health = 1800;
@@ -155,15 +164,15 @@ public class RCUnitTypes{
             legCount = 4;
             legGroupSize = 2;
             legLength = 25f;
-            legExtension = -3f;
+            legExtension = -5f;
             legStraightness = 0.3f;
             legMoveSpace = 0.8f;
             legBaseOffset = 2f;
             neckLength = 12.5f;
             neckSpeed = 1f;
-            neckTrns = 360f;
-            neckOffset = 7.5f;
-            headOffset = 9f;
+            neckTrns = 180f;
+            neckOffset = 3.75f;
+            headOffset = 4.5f;
             shadowElevation = 0.4f;
             flipBackLegs = true;
             lockLegBase = true;
