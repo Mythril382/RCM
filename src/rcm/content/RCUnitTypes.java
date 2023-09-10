@@ -19,8 +19,13 @@ import static mindustry.Vars.*;
 
 public class RCUnitTypes{
     public static UnitType
+    // fauna
+    // cherry forest
     neckranea, lightBug,
-    cherryCrawler;
+    // cherry desert
+    cherryCrawler,
+    // blueberry blizzards
+    kiwi;
     
     public static void load(){
         neckranea = new NeckUnitType("neckranea"){{
@@ -43,10 +48,10 @@ public class RCUnitTypes{
             neckOffset = 4f;
             headOffset = 4f;
             shadowElevation = 0.2f;
-            longNeck = true;
             lockLegBase = true;
             legContinuousMove = true;
             allowLegStep = true;
+            longNeck = true;
             hovering = true;
             hidden = true;
             drawCell = false;
@@ -138,6 +143,39 @@ public class RCUnitTypes{
                     statusDuration = 60f * 2.5f;
                 }};
             }});
+        }};
+        
+        kiwi = new NeckUnitType("kiwi"){{
+            health = 1800;
+            speed = 0.5f;
+            drag = 0.4f;
+            hitSize = 13f;
+            rotateSpeed = 2f;
+            maxDrown = 0.6f;
+            legCount = 4;
+            legGroupSize = 2;
+            legLength = 25f;
+            legExtension = -3f;
+            legStraightness = 0.3f;
+            legMoveSpace = 0.8f;
+            legBaseOffset = 2f;
+            neckLength = 12.5f;
+            neckSpeed = 1f;
+            neckTrns = 360f;
+            neckOffset = 7.5f;
+            headOffset = 9f;
+            shadowElevation = 0.4f;
+            flipBackLegs = true;
+            lockLegBase = true;
+            legContinuousMove = true;
+            allowLegStep = true;
+            longNeck = true;
+            hovering = true;
+            hidden = true;
+            drawCell = false;
+            useUnitCap = false;
+            outlineColor = Color.valueOf("634a4a");
+            constructor = NeckUnit::create;
         }};
     }
     
