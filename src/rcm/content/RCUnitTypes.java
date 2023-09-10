@@ -180,7 +180,7 @@ public class RCUnitTypes{
             hidden = true;
             drawCell = false;
             useUnitCap = false;
-            outlineColor = Color.valueOf("634a4a");
+            outlineColor = Color.valueOf("634040");
             constructor = NeckUnit::create;
         }};
     }
