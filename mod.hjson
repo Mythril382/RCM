@@ -5,6 +5,6 @@ main: rcm.RCM
 description: Just a regular campaign mod.
 version: 1.0.0
 subtitle: v1.0.0
-minGameVersion: 145.1
+minGameVersion: 146
 java: true
 repo: Mythril382/RCM
