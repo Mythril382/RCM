@@ -12,8 +12,7 @@ public class RCEnvRenderers{
         renderer.addEnvRenderer(RCEnv.vibrant, () -> {
             Draw.z(Layer.light + 1f);
             Draw.color(vibrantColor());
-            Draw.blend();
-            Fill.rect(Core.camera.position.x, Core.camera.position.y, Core.camera.width, Core.camera.height);
+            Draw.rect(Core.atlas.find("rcm-big-square"), Core.camera.position.x, Core.camera.position.y, Core.camera.width, Core.camera.height);
             Draw.reset();
         });
     }
@@ -21,7 +20,7 @@ public class RCEnvRenderers{
     public static Color vibrantColor(){
         float time = state.rules.ambientLight.a;
         Color color = new Color();
-        color.lerp(new Color[]{Color.valueOf("00000000"), Color.valueOf("00000000"), Color.valueOf("70310166"), Color.valueOf("1f1b6b66")}, time);
+        color.lerp(new Color[]{Color.valueOf("000000"), Color.valueOf("000000"), Color.valueOf("ff6373"), Color.valueOf("4136ff")}, time);
         return color;
     }
 }
