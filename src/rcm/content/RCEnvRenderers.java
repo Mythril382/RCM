@@ -22,7 +22,7 @@ public class RCEnvRenderers{
             }
 
             if(state.rules.ambientLight.a >= 0.75f){
-                Draw.draw(Layer.light + 1f;, () -> {
+                Draw.draw(Layer.light + 1f, () -> {
                     Weather.drawParticles(
                         Core.atlas.find("particle"), Color.valueOf("d7a4f5"),
                         1f, 4f,
