@@ -13,7 +13,7 @@ public class RCEnvRenderers{
         renderer.addEnvRenderer(RCEnv.vibrant, () -> {
             if(!state.rules.lighting) return;
 
-            if(state.rules.ambientLight <= 0.25f){
+            if(state.rules.ambientLight.a <= 0.25f){
                 Draw.draw(Layer.light + 1f, () -> {
                     Draw.color(vibrantColor());
                     Draw.rect(Core.atlas.find("rcm-big-square"), Core.camera.position.x, Core.camera.position.y, Core.camera.width, Core.camera.height);
