@@ -19,12 +19,12 @@ public class RCEnvRenderers{
                 Draw.reset();
             });
 
-            if(state.rules.ambientLight >= 0.75f){
+            if(state.rules.ambientLight.a >= 0.75f){
                 Draw.draw(Layer.weather, () -> {
                     Weather.drawParticles(
                         Core.atlas.find("particle"), Color.valueOf("d7a4f5"),
                         1f, 4f,
-                        1000f, (state.rules.ambientLight - 0.75f) / 0.25f, 1f,
+                        1000f, (state.rules.ambientLight.a - 0.75f) / 0.25f, 1f,
                         1f, 1f,
                         0.25f, 0.5f,
                         30f, 80f,
