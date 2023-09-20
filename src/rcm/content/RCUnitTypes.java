@@ -167,9 +167,8 @@ public class RCUnitTypes{
             legBaseOffset = 2f;
             neckLength = 12.5f;
             neckSpeed = 1f;
-            neckTrns = 180f;
+            neckTrns = 90f;
             neckOffset = 3.75f;
-            headOffset = 4.5f;
             shadowElevation = 0.4f;
             flipBackLegs = true;
             lockLegBase = true;
