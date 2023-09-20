@@ -14,7 +14,7 @@ public class RCEnvRenderers{
             if(!state.rules.lighting) return;
 
             if(state.rules.ambientLight.a <= 0.25f){
-                Draw.draw(Layer.light + 1f, () -> {
+                Draw.draw(Layer.light + 0.0002f, () -> {
                     Draw.color(vibrantColor());
                     Draw.rect(Core.atlas.find("rcm-big-square"), Core.camera.position.x, Core.camera.position.y, Core.camera.width, Core.camera.height);
                     Draw.reset();
@@ -22,7 +22,7 @@ public class RCEnvRenderers{
             }
 
             if(state.rules.ambientLight.a >= 0.75f){
-                Draw.draw(Layer.light + 1f, () -> {
+                Draw.draw(Layer.light + 0.0001f, () -> {
                     Weather.drawParticles(
                         Core.atlas.find("particle"), Color.valueOf("d7a4f5"),
                         1f, 4f,
