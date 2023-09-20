@@ -4,6 +4,7 @@ import arc.*;
 import arc.graphics.*;
 import arc.graphics.g2d.*;
 import mindustry.graphics.*;
+import mindustry.type.*;
 
 import static mindustry.Vars.*;
 
@@ -11,10 +12,27 @@ public class RCEnvRenderers{
     public static void init(){
         renderer.addEnvRenderer(RCEnv.vibrant, () -> {
             if(!state.rules.lighting) return;
-            Draw.z(Layer.light + 1f);
-            Draw.color(vibrantColor());
-            Draw.rect(Core.atlas.find("rcm-big-square"), Core.camera.position.x, Core.camera.position.y, Core.camera.width, Core.camera.height);
-            Draw.reset();
+
+            Draw.draw(Layer.light + 1f, () -> {
+                Draw.color(vibrantColor());
+                Draw.rect(Core.atlas.find("rcm-big-square"), Core.camera.position.x, Core.camera.position.y, Core.camera.width, Core.camera.height);
+                Draw.reset();
+            });
+
+            if(state.rules.ambientLight >= 0.9f){
+                Draw.draw(Layer.weather, () -> {
+                    Weather.drawParticles(
+                        Core.atlas.find("particle"), Color.valueOf("d7a4f5"),
+                        1f, 4f,
+                        1000f, 1f, 1f,
+                        1f, 1f,
+                        0.25, 0.5f,
+                        30f, 80f,
+                        1f, 7f,
+                        false
+                    );
+               });
+            }
         });
     }
     
