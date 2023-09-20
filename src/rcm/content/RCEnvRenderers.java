@@ -28,7 +28,7 @@ public class RCEnvRenderers{
                         1f, 4f,
                         1000f, (state.rules.ambientLight.a - 0.75f) / 0.25f, 1f,
                         1f, 1f,
-                        0.25f, 0.5f,
+                        0.5f, 0.35f,
                         30f, 80f,
                         1f, 7f,
                         false
