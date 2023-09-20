@@ -13,14 +13,16 @@ public class RCEnvRenderers{
         renderer.addEnvRenderer(RCEnv.vibrant, () -> {
             if(!state.rules.lighting) return;
 
-            Draw.draw(Layer.light + 1f, () -> {
-                Draw.color(vibrantColor());
-                Draw.rect(Core.atlas.find("rcm-big-square"), Core.camera.position.x, Core.camera.position.y, Core.camera.width, Core.camera.height);
-                Draw.reset();
-            });
+            if(state.rules.ambientLight <= 0.25f){
+                Draw.draw(Layer.light + 1f, () -> {
+                    Draw.color(vibrantColor());
+                    Draw.rect(Core.atlas.find("rcm-big-square"), Core.camera.position.x, Core.camera.position.y, Core.camera.width, Core.camera.height);
+                    Draw.reset();
+                });
+            }
 
             if(state.rules.ambientLight.a >= 0.75f){
-                Draw.draw(Layer.weather, () -> {
+                Draw.draw(Layer.light + 1f;, () -> {
                     Weather.drawParticles(
                         Core.atlas.find("particle"), Color.valueOf("d7a4f5"),
                         1f, 4f,
@@ -39,7 +41,7 @@ public class RCEnvRenderers{
     public static Color vibrantColor(){
         float time = state.rules.ambientLight.a;
         Color color = new Color();
-        color.lerp(new Color[]{Color.valueOf("dcdcdc"), Color.valueOf("ff6373"), Color.valueOf("4136ff")}, time);
+        color.lerp(new Color[]{Color.valueOf("000000"), Color.valueOf("ff6373"), Color.valueOf("4136ff")}, time);
         return color;
     }
 }
