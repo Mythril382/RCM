@@ -4,6 +4,8 @@ import arc.graphics.*;
 import mindustry.type.*;
 import rcm.type.status.*;
 
+import static mindustry.Vars.*;
+
 public class RCStatusEffects{
     public static StatusEffect
     weak, berryshifted;
@@ -18,6 +20,7 @@ public class RCStatusEffects{
         
         berryshifted = new ShiftStatusEffect("berryshifted"){{
             damageMultiplier = 0.5f;
+            range = 100f * tilesize;
             color = Color.valueOf("7a78ff");
             init(() -> unshift = RCUnitTypes.berryshift);
         }};
