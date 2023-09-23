@@ -11,6 +11,7 @@ import mindustry.entities.part.DrawPart.*;
 import mindustry.gen.*;
 import mindustry.graphics.*;
 import mindustry.type.*;
+import rcm.entities.abilities.*;
 import rcm.entities.unit.*;
 import rcm.type.unit.*;
 import rcm.type.unit.WingUnitType.*;
@@ -25,7 +26,7 @@ public class RCUnitTypes{
     // cherry desert
     cherryCrawler,
     // blueberry blizzards
-    kiwi;
+    kiwi, berryshift;
     
     public static void load(){
 
@@ -181,6 +182,25 @@ public class RCUnitTypes{
             useUnitCap = false;
             outlineColor = Color.valueOf("634040");
             constructor = NeckUnit::create;
+        }};
+        
+        berryshift = new UnitType("berryshift"){{
+            health = 1100;
+            hitSize = 9f;
+            speed = 1f;
+            rotateSpeed = 2.6f;
+            segments = 3;
+            segmentScl = 3f;
+            segmentPhase = 5f;
+            segmentMag = 0.5f;
+            hidden = true;
+            drawBody = false;
+            omniMovement = false;
+            useUnitCap = false;
+            
+            abilities.add(new ShiftAbility(100f * tilesize, 60f, new ObjectSet<>(cherryCrawler)){{
+                detect = RCStatusEffects.berryshifted;
+            }});
         }};
     }
     
