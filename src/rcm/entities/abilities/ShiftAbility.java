@@ -31,7 +31,7 @@ public class ShiftAbility extends Ability{
     
     @Override
     public void update(Unit unit){
-        Unit closest = Units.closestEnemy(unit.team, unit.x, unit.y, range, u -> allowShifts.contains(u));
+        Unit closest = Units.closestEnemy(unit.team, unit.x, unit.y, range, u -> allowShifts.contains(u.type));
         if(closest == null){
             timer = 0f;
             return;
