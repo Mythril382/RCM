@@ -38,10 +38,10 @@ public class ShiftAbility extends Ability{
         
         timer += Time.delta;
         if(timer >= wait){
-            Unit shift = closest.type.spawn(unit.team, unit.x, unit.y);
-            shift.apply(detect);
+            // TODO add fx along with temporary unmoving and invincible
+            unit.setType(closest.type);
+            unit.apply(detect);
             timer = 0f;
-            unit.kill();
         }
     }
 }
