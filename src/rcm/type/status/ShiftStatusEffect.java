@@ -24,7 +24,8 @@ public class ShiftStatusEffect extends StatusEffect{
         Unit closest = Units.closestEnemy(unit.team, unit.x, unit.x, range, u -> true);
         if(closest != null){
             // TODO add fx along with temporary unmoving and invincible
-            unit.setType(unshift);
+            unshift.spawn(unit.team, unit.x, unit.y);
+            unit.remove();
         }
     }
 }
