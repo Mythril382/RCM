@@ -1,10 +1,12 @@
 package rcm.entities.abilities;
 
 import arc.struct.*;
+import arc.util.*;
 import mindustry.content.*;
 import mindustry.entities.*;
 import mindustry.entities.abilities.*;
 import mindustry.gen.*;
+import mindustry.type.*;
 import rcm.type.status.*;
 
 public class ShiftAbility extends Ability{
