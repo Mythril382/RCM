@@ -21,7 +21,7 @@ public class ShiftStatusEffect extends StatusEffect{
     public void update(Unit unit, float time){
         super.update(unit, time);
         
-        Unit closest = Units.closestEnemy(unit.team, unit.x, unit.x, u -> {});
+        Unit closest = Units.closestEnemy(unit.team, unit.x, unit.x, range, u -> {});
         if(closest != null){
             unshift.spawn(unit.team, unit.x, unit.y);
             unit.kill();
