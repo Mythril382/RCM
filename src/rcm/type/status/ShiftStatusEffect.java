@@ -22,7 +22,7 @@ public class ShiftStatusEffect extends StatusEffect{
         super.update(unit, time);
         
         Unit closest = Units.closestEnemy(unit.team, unit.x, unit.x, range, u -> true);
-        if(closest != null){
+        if(closest == null){
             // TODO add fx along with temporary unmoving and invincible
             unshift.spawn(unit.team, unit.x, unit.y);
             unit.remove();
