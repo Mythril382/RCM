@@ -196,6 +196,7 @@ public class RCUnitTypes{
             segmentMag = 0.5f;
             hidden = true;
             drawBody = false;
+            drawCell = false;
             omniMovement = false;
             useUnitCap = false;
             outlineColor = Color.valueOf("324194");
