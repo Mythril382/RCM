@@ -13,6 +13,7 @@ import mindustry.graphics.*;
 import mindustry.type.*;
 import rcm.entities.abilities.*;
 import rcm.entities.unit.*;
+import rcm.type.status.*;
 import rcm.type.unit.*;
 import rcm.type.unit.WingUnitType.*;
 
