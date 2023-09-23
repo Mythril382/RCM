@@ -199,7 +199,7 @@ public class RCUnitTypes{
             omniMovement = false;
             useUnitCap = false;
             outlineColor = Color.valueOf("324194");
-            constructor = Crawlc::create;
+            constructor = CrawlUnit::create;
             
             abilities.add(new ShiftAbility(100f * tilesize, 60f){{
                 detect = (ShiftStatusEffect)RCStatusEffects.berryshifted;
