@@ -198,8 +198,9 @@ public class RCUnitTypes{
             omniMovement = false;
             useUnitCap = false;
             
-            abilities.add(new ShiftAbility(100f * tilesize, 60f, new ObjectSet<>(cherryCrawler)){{
-                detect = RCStatusEffects.berryshifted;
+            abilities.add(new ShiftAbility(100f * tilesize, 60f){{
+                detect = (ShiftStatusEffect)RCStatusEffects.berryshifted;
+                allowShifts.add(cherryCrawler);
             }});
         }};
     }
