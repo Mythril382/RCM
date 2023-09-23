@@ -23,10 +23,9 @@ public class ShiftAbility extends Ability{
     
     public ShiftAbility(){}
     
-    public ShiftAbility(float range, float wait, ObjectSet<UnitType> allowShifts){
+    public ShiftAbility(float range, float wait){
         this.range = range;
         this.wait = wait;
-        this.allowShifts = allowShifts;
     }
     
     @Override
