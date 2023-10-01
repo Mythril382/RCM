@@ -228,19 +228,19 @@ public class RCUnitTypes{
             outlineColor = Color.valueOf("365861");
             constructor = UnitEntity::create;
             abilities.addAll(
-                new MoveEffectAbility(5.375f, -5.375f, Color.valueOf("a1c2d1"), RCFx.droneBlade, 180f / 10f){{
+                new MoveEffectAbility(5.5f, -5.5f, Color.valueOf("a1c2d1"), RCFx.droneBlade, 180f / 10f){{
                     minVelocity = 0f;
                     parentizeEffects = true;
                 }},
-                new MoveEffectAbility(5.375f, 5.375f, Color.valueOf("a1c2d1"), RCFx.droneBlade, 180f / 10f){{
+                new MoveEffectAbility(5.5f, 5.5f, Color.valueOf("a1c2d1"), RCFx.droneBlade, 180f / 10f){{
                     minVelocity = 0f;
                     parentizeEffects = true;
                 }},
-                new MoveEffectAbility(-5.375f, -5.375f, Color.valueOf("a1c2d1"), RCFx.droneBlade, 180f / 10f){{
+                new MoveEffectAbility(-5.5f, -5.5f, Color.valueOf("a1c2d1"), RCFx.droneBlade, 180f / 10f){{
                     minVelocity = 0f;
                     parentizeEffects = true;
                 }},
-                new MoveEffectAbility(-5.375f, 5.375f, Color.valueOf("a1c2d1"), RCFx.droneBlade, 180f / 10f){{
+                new MoveEffectAbility(-5.5f, 5.5f, Color.valueOf("a1c2d1"), RCFx.droneBlade, 180f / 10f){{
                     minVelocity = 0f;
                     parentizeEffects = true;
                 }}
