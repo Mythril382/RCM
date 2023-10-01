@@ -14,4 +14,5 @@ public class RCFx{
         rect(Core.atlas.find("rcm-blade"), e.x, e.y, e.fin() * 360f);
         reset();
     }).layer(Layer.flyingUnit - 0.1f);
+    droneBlade.rotWithParent = true;
 }
