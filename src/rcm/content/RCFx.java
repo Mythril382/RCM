@@ -13,5 +13,5 @@ public class RCFx{
         color(e.color);
         rect(Core.atlas.find("rcm-blade"), e.x, e.y, e.fin() * 45f);
         reset();
-    }).layer(Layer.flyingUnitLow - 0.1f);
+    }).layer(Layer.flyingUnit - 0.1f);
 }
