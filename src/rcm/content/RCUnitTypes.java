@@ -5,6 +5,7 @@ import arc.graphics.*;
 import arc.struct.*;
 import arc.struct.ObjectMap.*;
 import mindustry.content.*;
+import mindustry.entities.abilities.*;
 import mindustry.entities.bullet.*;
 import mindustry.entities.part.*;
 import mindustry.entities.part.DrawPart.*;
@@ -27,7 +28,10 @@ public class RCUnitTypes{
     // cherry desert
     cherryCrawler,
     // blueberry blizzards
-    kiwi, berryshift;
+    kiwi, berryshift,
+    // tech
+    // misc
+    transportDrone;
     
     public static void load(){
 
@@ -206,6 +210,41 @@ public class RCUnitTypes{
                 detect = (ShiftStatusEffect)RCStatusEffects.berryshifted;
                 allowShifts.add(cherryCrawler);
             }});
+        }};
+        
+        // tech
+        
+        // misc
+        transportDrone = new UnitType("transport-drone"){{
+            health = 2500;
+            hitSize = 3.5f;
+            speed = 3.5f;
+            accel = 0.07f;
+            drag = 0.025f;
+            engineSize = 0f;
+            flying = true;
+            hidden = true;
+            useUnitCap = false;
+            outlineColor = Color.valueOf("365861");
+            constructor = UnitEntity::create;
+            abilities.addAll(
+                new MoveEffectAbility(5.375f, -5.375f, Color.valueOf("a1c2d1"), RCFx.droneBlade, 45f / 4f){{
+                    minVelocity = 0f;
+                    parentizeEffects = true;
+                }},
+                new MoveEffectAbility(5.375f, 5.375f, Color.valueOf("a1c2d1"), RCFx.droneBlade, 45f / 4f){{
+                    minVelocity = 0f;
+                    parentizeEffects = true;
+                }},
+                new MoveEffectAbility(-5.375f, -5.375f, Color.valueOf("a1c2d1"), RCFx.droneBlade, 45f / 4f){{
+                    minVelocity = 0f;
+                    parentizeEffects = true;
+                }},
+                new MoveEffectAbility(-5.375f, 5.375f, Color.valueOf("a1c2d1"), RCFx.droneBlade, 45f / 4f){{
+                    minVelocity = 0f;
+                    parentizeEffects = true;
+                }}
+            );
         }};
     }
     
