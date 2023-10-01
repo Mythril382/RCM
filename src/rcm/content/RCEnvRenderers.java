@@ -13,6 +13,7 @@ public class RCEnvRenderers{
         renderer.addEnvRenderer(RCEnv.vibrant, () -> {
             if(!state.rules.lighting) return;
 
+            // TODO smooth transition somehow
             if(state.rules.ambientLight.a >= 0.2f){
                 Draw.draw(Layer.light + 0.0001f, () -> {
                     Draw.color(vibrantColor());
