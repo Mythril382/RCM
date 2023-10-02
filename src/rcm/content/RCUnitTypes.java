@@ -79,6 +79,7 @@ public class RCUnitTypes{
             hitSize = 2f;
             lightRadius = 2f * tilesize;
             flying = true;
+            lowAltitude = true;
             hidden = true;
             drawCell = false;
             useUnitCap = false;
@@ -167,7 +168,7 @@ public class RCUnitTypes{
             legCount = 4;
             legGroupSize = 2;
             legLength = 25f;
-            legExtension = -5f;
+            legExtension = -12.5f;
             legStraightness = 0.1f;
             legMoveSpace = 0.8f;
             legBaseOffset = 2f;
@@ -185,6 +186,7 @@ public class RCUnitTypes{
             hidden = true;
             drawCell = false;
             useUnitCap = false;
+            groundLayer = Layer.flyingUnitLow + 0.001f;
             outlineColor = Color.valueOf("634040");
             constructor = NeckUnit::create;
         }};
