@@ -168,7 +168,7 @@ public class RCUnitTypes{
             legCount = 4;
             legGroupSize = 2;
             legLength = 25f;
-            legExtension = -12.5f;
+            legExtension = -10f;
             legStraightness = 0.1f;
             legMoveSpace = 0.8f;
             legBaseOffset = 2f;
