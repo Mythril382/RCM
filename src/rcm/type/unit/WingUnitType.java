@@ -76,7 +76,7 @@ public class WingUnitType extends UnitType{
         /** Wing flap magnitude. Set to 0f to detect from width. */
         public float flapMag = 0f;
         /** Wing draw layer. */
-        public float layer = Layer.flyingUnit + 0.001f;
+        public float layer = Layer.flyingUnitLow + 0.001f;
         /** Mirror to opposite side. */
         public boolean mirror = false;
         /** Internal use only. Determines if wing is mirrored. */
