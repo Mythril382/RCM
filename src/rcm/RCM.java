@@ -28,6 +28,6 @@ public class RCM extends Mod{
 
     public void loadUI(){
         bestiary = new BestiaryDialog();
-        ui.hudfrag.find("statustable").button("@bestiary.title", bestiary::show).visible(() -> state.rules.hasEnv(RCEnv.vibrant));
+        ui.hudGroup.find("statustable").button("@bestiary.title", bestiary::show).visible(() -> state.rules.hasEnv(RCEnv.vibrant));
     }
 }
