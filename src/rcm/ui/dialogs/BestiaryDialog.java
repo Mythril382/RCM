@@ -36,7 +36,7 @@ public class BestiaryDialog extends BaseDialog{
                 t.table(e -> {
                     // TODO add locks
                     e.image(Core.atlas.find(u.name + "-portrait")).size(150f).left().pad(5f);
-                    e.add(u.description).pad(5f).padLeft(10f).growX().wrap();
+                    e.add(u.description).pad(5f).padLeft(10f).growX();
                     t.row();
                 }).growX().style(Styles.grayt);
             });
