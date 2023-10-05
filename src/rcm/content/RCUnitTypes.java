@@ -95,7 +95,7 @@ public class RCUnitTypes{
             }});
             
             parts.add(new RegionPart("-glow"){{
-                layer = Layer.flyingUnit + 0.002f;
+                layer = Layer.flyingUnitLow + 0.002f;
                 outline = false;
                 blending = Blending.additive;
                 color = Color.valueOf("d7a4f5").a(0.5f);
@@ -186,7 +186,7 @@ public class RCUnitTypes{
             hidden = true;
             drawCell = false;
             useUnitCap = false;
-            groundLayer = Layer.flyingUnitLow + 0.001f;
+            groundLayer = Layer.flyingUnitLow + 0.1f;
             outlineColor = Color.valueOf("634040");
             constructor = NeckUnit::create;
         }};
