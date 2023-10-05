@@ -31,6 +31,6 @@ public class RCM extends Mod{
         bestiary = new BestiaryDialog();
         Table statusTable = (Table)ui.hudGroup.find("statustable");
         statusTable.row();
-        statusTable.button("@bestiary.title", bestiary::show).height(60f, 140f).visible(() -> state.rules.hasEnv(RCEnv.vibrant));
+        statusTable.button("@bestiary.title", bestiary::show).size(60f, 140f).visible(() -> state.rules.hasEnv(RCEnv.vibrant));
     }
 }
