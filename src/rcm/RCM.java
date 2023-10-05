@@ -1,6 +1,7 @@
 package rcm;
 
 import arc.*;
+import arc.scene.ui.layout.*;
 import arc.util.*;
 import mindustry.game.EventType.*;
 import mindustry.mod.*;
@@ -28,6 +29,7 @@ public class RCM extends Mod{
 
     public void loadUI(){
         bestiary = new BestiaryDialog();
-        ui.hudGroup.find("statustable").button("@bestiary.title", bestiary::show).visible(() -> state.rules.hasEnv(RCEnv.vibrant));
+        Table statusTable = (Table)ui.hudGroup.find("statustable");
+        statusTable.button("@bestiary.title", bestiary::show).visible(() -> state.rules.hasEnv(RCEnv.vibrant));
     }
 }
