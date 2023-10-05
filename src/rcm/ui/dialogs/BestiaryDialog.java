@@ -2,6 +2,7 @@ package rcm.ui.dialogs;
 
 import arc.*;
 import arc.struct.*;
+import mindustry.type.*;
 import mindustry.ui.dialogs.*;
 import rcm.content.*;
 
