@@ -38,7 +38,7 @@ public class BestiaryDialog extends BaseDialog{
                     e.image(Core.atlas.find(u.name + "-portrait")).size(150f).left().pad(5f);
                     e.add(u.description).pad(5f).padLeft(10f).growX().wrap();
                     t.row();
-                }).growX().style(Styles.grayPanel);
+                }).growX().style(Styles.grayt);
             });
         }).scrollX(false);
     }
