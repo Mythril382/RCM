@@ -18,7 +18,7 @@ public class BestiaryDialog extends BaseDialog{
         shouldPause = true;
         
         shown(this::rebuild);
-        addCloseListener();
+        addClosButton();
         
         entrys.addAll(
             RCUnitTypes.neckranea,
@@ -37,12 +37,12 @@ public class BestiaryDialog extends BaseDialog{
             entrys.each(u -> {
                 t.table(Tex.whiteui, e -> {
                     // TODO add locks
-                    e.add(u.localizedName).top().grow().left().pad(10f);
+                    e.add(u.localizedName).top().grow().left().pad(20f);
                     e.row();
-                    e.image(Core.atlas.find(u.name + "-portrait")).size(150f).grow().left().pad(5f);
-                    e.add(u.description).grow().left().pad(10f).padLeft(10f).wrap();
+                    e.image(Core.atlas.find(u.name + "-portrait")).size(150f).grow().left().pad(20f);
+                    e.add(u.description).grow().left().pad(20f).padLeft(20f).wrap();
                     t.row();
-                }).pad(10f).growX().color(Pal.darkishGray);
+                }).pad(20f).growX().color(Pal.darkishGray);
             });
         }).growX().scrollX(false);
     }
