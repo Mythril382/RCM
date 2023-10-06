@@ -18,7 +18,7 @@ public class BestiaryDialog extends BaseDialog{
         shouldPause = true;
         
         shown(this::rebuild);
-        addClosButton();
+        addCloseButton();
         
         entrys.addAll(
             RCUnitTypes.neckranea,
