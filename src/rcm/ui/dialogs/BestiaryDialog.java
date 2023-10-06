@@ -3,6 +3,7 @@ package rcm.ui.dialogs;
 import arc.*;
 import arc.struct.*;
 import mindustry.gen.*;
+import mindustry.graphics.*;
 import mindustry.type.*;
 import mindustry.ui.*;
 import mindustry.ui.dialogs.*;
@@ -34,12 +35,13 @@ public class BestiaryDialog extends BaseDialog{
         cont.pane(t -> {
             t.defaults().height(220f);
             entrys.each(u -> {
-                t.table(e -> {
+                t.table(Tex.whiteui, e -> {
                     // TODO add locks
+                    e.add(u.localizedName).top().left().pad(5f);
                     e.image(Core.atlas.find(u.name + "-portrait")).size(150f).left().pad(5f);
                     e.add(u.description).pad(5f).padLeft(10f).growX();
                     t.row();
-                }).growX().style(Tex.button);
+                }).growX().color(Pal.darkishGray);
             });
         }).growX().scrollX(false);
     }
