@@ -16,6 +16,7 @@ public class RCM extends Mod{
     
     @Override
     public void loadContent(){
+        RCItems.load();
         RCStatusEffects.load();
         RCUnitTypes.load();
         RCBlocks.load();
