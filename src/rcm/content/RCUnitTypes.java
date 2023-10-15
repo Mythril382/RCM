@@ -4,6 +4,7 @@ import arc.func.*;
 import arc.graphics.*;
 import arc.struct.*;
 import arc.struct.ObjectMap.*;
+import mindustry.ai.types.*;
 import mindustry.content.*;
 import mindustry.entities.abilities.*;
 import mindustry.entities.bullet.*;
@@ -22,22 +23,12 @@ import static mindustry.Vars.*;
 
 public class RCUnitTypes{
     public static UnitType
-    // fauna
-    // cherry forest
     neckranea, lightBug,
-    // cherry desert
     cherryCrawler,
-    // blueberry blizzards
     kiwi, berryshift,
-    // tech
-    // misc
     transportDrone;
     
     public static void load(){
-
-        // fauna
-        
-        // cherry forest
         neckranea = new NeckUnitType("neckranea"){{
             health = 1000;
             armor = 1;
@@ -102,7 +93,6 @@ public class RCUnitTypes{
             }});
         }};
 
-        // cherry desert
         cherryCrawler = new UnitType("cherry-crawler"){{
             health = 1600;
             armor = 2;
@@ -157,7 +147,6 @@ public class RCUnitTypes{
             }});
         }};
 
-        // blueberry blizzards
         kiwi = new NeckUnitType("kiwi"){{
             health = 1800;
             speed = 0.5f;
@@ -214,9 +203,6 @@ public class RCUnitTypes{
             }});
         }};
         
-        // tech
-        
-        // misc
         transportDrone = new UnitType("transport-drone"){{
             health = 2500;
             hitSize = 3.5f;
@@ -224,11 +210,13 @@ public class RCUnitTypes{
             accel = 0.07f;
             drag = 0.025f;
             engineSize = 0f;
+            itemCapacity = 25;
             flying = true;
             hidden = true;
             useUnitCap = false;
             outlineColor = Color.valueOf("365861");
-            constructor = UnitEntity::create;
+            controller = u -> new CargoAI();
+            constructor = BuildingTetherPayloadUnit::create;
             abilities.addAll(
                 new MoveEffectAbility(5.5f, -5.5f, Color.valueOf("a1c2d1"), RCFx.droneBlade, 180f / 10f){{
                     minVelocity = 0f;
