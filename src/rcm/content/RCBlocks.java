@@ -71,7 +71,7 @@ public class RCBlocks{
             requirements(Category.distribution, with(RCItems.aluminium, 10));
             size = 1;
             itemCapacity = 25;
-            staleItemDuration = 15f;
+            staleTimeDuration = 15f;
         }};
     }
 }
