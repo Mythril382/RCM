@@ -213,6 +213,7 @@ public class RCUnitTypes{
             itemCapacity = 25;
             flying = true;
             hidden = true;
+            createWreck = false;
             useUnitCap = false;
             outlineColor = Color.valueOf("365861");
             controller = u -> new CargoAI();
