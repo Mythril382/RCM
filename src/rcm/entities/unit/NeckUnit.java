@@ -60,8 +60,6 @@ public class NeckUnit extends LegsUnit{
                 cdist = dist;
             }
         });
-
-        return nearby;
         
         if(nearby != null){
             float
