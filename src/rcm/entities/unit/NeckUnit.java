@@ -47,19 +47,8 @@ public class NeckUnit extends LegsUnit{
             }
         }
         
-        Unit nearby = null;
-        float cdist = 0f;
-        
-        float range = tilesize * 10f;
-        Units.nearby(null, x - range, y - range, range * 2f, range * 2f, e -> {
-            if(!e.isValid()) return;
-
-            float dist = e.dst2(x, y);
-            if(nearby == null || dist < cdist){
-                nearby = e;
-                cdist = dist;
-            }
-        });
+        Unit nearby = Units.closestEnemy(team, x, y, tilesize * 10f, () -> true);
+        if(nearby == null) nearby = Units.closest(team, x, y, tilesize * 10f, () -> true);
         
         if(nearby != null){
             float
