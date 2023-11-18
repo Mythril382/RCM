@@ -17,6 +17,7 @@ import rcm.entities.abilities.*;
 import rcm.entities.unit.*;
 import rcm.type.status.*;
 import rcm.type.unit.*;
+import rcm.type.unit.NeckUnitType.*;
 import rcm.type.unit.WingUnitType.*;
 
 import static mindustry.Vars.*;
@@ -48,17 +49,31 @@ public class RCUnitTypes{
             neckSpeed = 2f;
             neckOffset = 4f;
             headOffset = 4f;
+            eyeOffset = 1.5f;
+            pupilDistance = 1.5f;
             shadowElevation = 0.2f;
             lockLegBase = true;
             legContinuousMove = true;
             allowLegStep = true;
             longNeck = true;
+            drawEye = true;
             hovering = true;
             hidden = true;
             drawCell = false;
             useUnitCap = false;
             outlineColor = Color.valueOf("332480");
             constructor = NeckUnit::create;
+            
+            eyelids.add(
+                new Eyelid("-eyelid1"){{
+                    openY = 1.5f;
+                    closeY = -1.5f;
+                }},
+                new Eyelid("-eyelid2"){{
+                    openY = -1.25f;
+                    closeY = 1.25f;
+                }}
+            );
         }};
         
         lightBug = new WingUnitType("light-bug"){{
