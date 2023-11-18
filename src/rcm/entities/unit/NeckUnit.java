@@ -63,7 +63,8 @@ public class NeckUnit extends LegsUnit{
             newPupilX = Angles.trnsx(neckRot, neck.pupilDistance);
             newPupilY = Angles.trnsy(neckRot, neck.pupilDistance);
         }else{
-            newPupilX = newPupilY = 0f;
+            newPupilX = Angles.trnsx(neckAngle, neck.pupilDistance);
+            newPupilY = Angles.trnsy(neckAngle, neck.pupilDistance);
         }
         
         pupilX = Mathf.approachDelta(pupilX, newPupilX, neck.pupilSpeed);
