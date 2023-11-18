@@ -51,6 +51,7 @@ public class RCUnitTypes{
             headOffset = 4f;
             eyeOffset = 1.375f;
             pupilDistance = 1.375f;
+            blinkTime = 0.1f;
             shadowElevation = 0.2f;
             lockLegBase = true;
             legContinuousMove = true;
@@ -67,11 +68,11 @@ public class RCUnitTypes{
             eyelids.add(
                 new Eyelid("-eyelid1"){{
                     openY = 1.875f;
-                    closeY = -0.9375f;
+                    closeY = -1.875f;
                 }},
                 new Eyelid("-eyelid2"){{
                     openY = -1.625f;
-                    closeY = 0.8125f;
+                    closeY = 1.625f;
                 }}
             );
         }};
