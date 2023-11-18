@@ -47,18 +47,18 @@ public class NeckUnit extends LegsUnit{
             }
         }
         
-        Unit nearby = Units.closestEnemy(team, x, y, tilesize * 10f, u -> true);
-        if(nearby == null) nearby = Units.closest(team, x, y, tilesize * 10f, u -> true);
+        Unit nearby = Units.closestEnemy(team, x, y, tilesize * 10f, u -> u != this);
+        if(nearby == null) nearby = Units.closest(team, x, y, tilesize * 10f, u -> u != this);
         
         if(nearby != null){
             float
             angleX = Angles.trnsx(neckRot, neck.neckOffset + neck.neckLength + neck.headOffset + neck.eyeOffset),
             angleY = Angles.trnsx(neckRot, neck.neckOffset + neck.neckLength + neck.headOffset + neck.eyeOffset),
             pupilAngle = Angles.angle(angleX, angleY, nearby.x, nearby.y),
-            pupilDistance = Math.min(this.dst(nearby), neck.pupilDistance);
+            pupilDistance = Math.min(dst(nearby), neck.pupilDistance);
             
             newPupilX = Angles.trnsx(pupilAngle, pupilDistance);
-            newPupilY = Angles.trnsx(pupilAngle, pupilDistance);
+            newPupilY = Angles.trnsy(pupilAngle, pupilDistance);
         }else if(moving()){
             newPupilX = Angles.trnsx(neckRot, neck.pupilDistance);
             newPupilY = Angles.trnsy(neckRot, neck.pupilDistance);
