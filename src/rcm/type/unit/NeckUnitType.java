@@ -58,7 +58,7 @@ public class NeckUnitType extends UnitType{
         pupilRegion = Core.atlas.find(name + "-pupil");
         
         eyelids.each(e -> {
-            e.load();
+            e.load(this);
         });
     }
     
@@ -172,8 +172,8 @@ public class NeckUnitType extends UnitType{
             this.name = name;
         }
         
-        public void load(){
-            region = Core.atlas.find("rcm-" + name);
+        public void load(UnitType unit){
+            region = Core.atlas.find(unit.name + name);
         }
     }
 }
