@@ -67,12 +67,12 @@ public class RCUnitTypes{
             
             eyelids.add(
                 new Eyelid("-eyelid1"){{
-                    openY = 1.875f;
-                    closeY = -1.875f;
+                    openY = 2.375f;
+                    closeY = -1.75f;
                 }},
                 new Eyelid("-eyelid2"){{
-                    openY = -1.625f;
-                    closeY = 1.625f;
+                    openY = -2f;
+                    closeY = 1.25f;
                 }}
             );
         }};
