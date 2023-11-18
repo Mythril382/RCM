@@ -85,8 +85,8 @@ public class NeckUnitType extends UnitType{
         ex = hx + Angles.trnsx(neck.neckRot, eyeOffset),
         ey = hy + Angles.trnsy(neck.neckRot, eyeOffset),
         
-        px = neck.pupilX + Angles.trnsx(neck.neckRot, eyeOffset),
-        py = neck.pupilY + Angles.trnsy(neck.neckRot, eyeOffset);
+        px = ex + neck.pupilX,
+        py = ey + neck.pupilY;
 
         Lines.stroke(neckRegion.height * 0.25f);
         Lines.line(neckRegion, x, y, x2, y2, false);
