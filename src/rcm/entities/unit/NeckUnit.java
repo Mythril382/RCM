@@ -12,7 +12,7 @@ import rcm.type.unit.*;
 import static mindustry.Vars.*;
 
 public class NeckUnit extends LegsUnit{
-    public float neckRot;
+    public float neckRot, blinkProgress, eyeOffset;
     
     @Override
     public void add(){
