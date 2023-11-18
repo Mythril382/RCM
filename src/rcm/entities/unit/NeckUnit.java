@@ -47,8 +47,8 @@ public class NeckUnit extends LegsUnit{
             }
         }
         
-        Unit nearby = Units.closestEnemy(team, x, y, tilesize * 10f, () -> true);
-        if(nearby == null) nearby = Units.closest(team, x, y, tilesize * 10f, () -> true);
+        Unit nearby = Units.closestEnemy(team, x, y, tilesize * 10f, u -> true);
+        if(nearby == null) nearby = Units.closest(team, x, y, tilesize * 10f, u -> true);
         
         if(nearby != null){
             float
