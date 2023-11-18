@@ -98,8 +98,8 @@ public class NeckUnitType extends UnitType{
                 float
                 neckRot = neck.neckRot - 90f,
                 
-                blinkX = Mathf.lerp(openX, closeX, Interp.slope.apply(neck.blinkTime)),
-                blinkY = Mathf.lerp(openY, closeY, Interp.slope.apply(neck.blinkTime)),
+                blinkX = Mathf.lerp(e.openX, e.closeX, Interp.slope.apply(neck.blinkTime)),
+                blinkY = Mathf.lerp(e.openY, e.closeY, Interp.slope.apply(neck.blinkTime)),
                 
                 lx = ex + Angles.trnsx(neckRot, blinkX, blinkY),
                 ly = ey + Angles.trnsy(neckRot, blinkX, blinkY);
