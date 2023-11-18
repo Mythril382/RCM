@@ -130,12 +130,17 @@ public class NeckUnitType extends UnitType{
         y2 = y + Angles.trnsy(neck.neckRot, neckLength),
         
         hx = x2 + Angles.trnsx(neck.neckRot, headOffset),
-        hy = y2 + Angles.trnsy(neck.neckRot, headOffset);
+        hy = y2 + Angles.trnsy(neck.neckRot, headOffset),
+
+        ex = hx + Angles.trnsx(neck.neckRot, eyeOffset),
+        ey = hy + Angles.trnsy(neck.neckRot, eyeOffset)
         
         Lines.stroke(neckRegion.height * 0.25f);
         Lines.line(neckRegion, x, y, x2, y2, false);
         
         Draw.rect(headRegion, hx, hy, neck.neckRot);
+
+        Draw.rect(eyeRegion, ex, ey, neck.neckRot);
         
         Draw.color();
     }
