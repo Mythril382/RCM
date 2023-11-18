@@ -4,6 +4,7 @@ import arc.*;
 import arc.graphics.*;
 import arc.graphics.g2d.*;
 import arc.math.*;
+import arc.struct.*;
 import arc.util.*;
 import mindustry.gen.*;
 import mindustry.graphics.*;
@@ -26,8 +27,20 @@ public class NeckUnitType extends UnitType{
     /** If enabled, the unit will not render it's neck the same color as it's body when drowning. */
     public boolean longNeck = false;
     
+    /** Whether unit has eyes. */
+    public boolean drawEye = false;
+    /** Offset of eyes to head. */
+    public float eyeOffset = 0f;
+    /** Max distance the pupil can get to from its origin. */
+    public float pupilDistance = 0f;
+    /** Blink duration. */
+    public float blinkTime = 0.2f;
+    /** Eyelids. */
+    public Seq<Eyelid> eyelids = new Seq<>();
+    
     public TextureRegion
-    neckRegion, headRegion;
+    neckRegion, headRegion,
+    eyeRegion, pupilRegion;
     
     public NeckUnitType(String name){
         super(name);
@@ -38,6 +51,13 @@ public class NeckUnitType extends UnitType{
         super.load();
         neckRegion = Core.atlas.find(name + "-neck");
         headRegion = Core.atlas.find(name + "-head");
+        
+        eyeRegion = Core.atlas.find(name + "-eye");
+        pupilRegion = Core.atlas.find(name + "-pupil");
+        
+        eyelids.each(e -> {
+            e.load();
+        });
     }
     
     @Override
@@ -58,10 +78,35 @@ public class NeckUnitType extends UnitType{
         y2 = y + Angles.trnsy(neck.neckRot, neckLength),
         
         hx = x2 + Angles.trnsx(neck.neckRot, headOffset),
-        hy = y2 + Angles.trnsy(neck.neckRot, headOffset);
+        hy = y2 + Angles.trnsy(neck.neckRot, headOffset),
+        
+        ex = hx + Angles.trnsx(neck.neckRot, eyeOffset),
+        ey = hy + Angles.trnsy(neck.neckRot, eyeOffset),
+        
+        px = ex + Angles.trnsx(neck.neckRot, eyeOffset),
+        py = ey + Angles.trnsy(neck.neckRot, eyeOffset);
 
         Lines.stroke(neckRegion.height * 0.25f);
         Lines.line(neckRegion, x, y, x2, y2, false);
+        
+        if(drawEye){
+            Draw.rect(eyeRegion, ex, ey, neck.neckRot);
+            
+            Draw.rect(pupilRegion, px, py, neck.neckRot);
+            
+            eyelids.each(e -> {
+                float
+                neckRot = neck.neckRot - 90f,
+                
+                blinkX = Mathf.lerp(openX, closeX, Interp.slope.apply(neck.blinkTime)),
+                blinkY = Mathf.lerp(openY, closeY, Interp.slope.apply(neck.blinkTime)),
+                
+                lx = ex + Angles.trnsx(neckRot, blinkX, blinkY),
+                ly = ey + Angles.trnsy(neckRot, blinkX, blinkY);
+                
+                Draw.rect(e.region, lx, ly, neck.neckRot);
+            });
+        }
         
         Draw.rect(headRegion, hx, hy, neck.neckRot);
         
@@ -86,7 +131,7 @@ public class NeckUnitType extends UnitType{
         
         hx = x2 + Angles.trnsx(neck.neckRot, headOffset),
         hy = y2 + Angles.trnsy(neck.neckRot, headOffset);
-
+        
         Lines.stroke(neckRegion.height * 0.25f);
         Lines.line(neckRegion, x, y, x2, y2, false);
         
@@ -105,6 +150,28 @@ public class NeckUnitType extends UnitType{
         if(longNeck) return;
         if(unit.drownTime > 0 && unit.lastDrownFloor != null){
             Draw.mixcol(Tmp.c1.set(unit.lastDrownFloor.mapColor).mul(0.83f), unit.drownTime * 0.9f);
+        }
+    }
+    
+    public class Eyelid{
+        /** X offset from pupil origin when opened. */
+        public float openX = 0f;
+        /** Y offset from pupil origin when opened. */
+        public float openY = 0f;
+        /** X offset from openX when closed. */
+        public float closeX = 0f;
+        /** Y offset from openY when closed. */
+        public float closeY = 0f;
+        
+        public String name;
+        public TextureRegion region;
+        
+        public Eyelid(String name){
+            this.name = name;
+        }
+        
+        public void load(){
+            region = Core.atlas.find("rcm-" + name);
         }
     }
 }
