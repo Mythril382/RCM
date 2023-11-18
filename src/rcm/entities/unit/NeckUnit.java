@@ -3,6 +3,7 @@ package rcm.entities.unit;
 import arc.*;
 import arc.math.*;
 import arc.util.*;
+import mindustry.entities.*;
 import mindustry.game.EventType.*;
 import mindustry.gen.*;
 import mindustry.world.blocks.environment.*;
@@ -12,7 +13,10 @@ import rcm.type.unit.*;
 import static mindustry.Vars.*;
 
 public class NeckUnit extends LegsUnit{
-    public float neckRot, blinkProgress, eyeOffset;
+    public float
+    neckRot, blinkProg, blinkTime,
+    pupilX, pupilY,
+    newPupilX, newPupilY;
     
     @Override
     public void add(){
@@ -33,6 +37,50 @@ public class NeckUnit extends LegsUnit{
         neckRot = Angles.clampRange(neckRot, rotation, neck.neckTrns);
         float neckAngle = Angles.angle(x, y, aimX(), aimY());
         neckRot = Angles.moveToward(neckRot, neckAngle, neck.neckSpeed * Time.delta);
+        
+        blinkTime -= Time.delta;
+        if(blinkTime <= 0f){
+            blinkProg += (1f / neck.blinkTime) * Time.delta / 60f;
+            if(blinkProg >= 1f){
+                blinkProg = 0f;
+                blinkTime = Mathf.random(120, 600);
+            }
+        }
+        
+        nearby = null;
+        cdist = 0f;
+        
+        float range = tilesize * 10f;
+        Units.nearby(null, x - range, y - range, range * 2f, range * 2f, e -> {
+            if(!e.isValid()) return;
+
+            float dist = e.dst2(x, y);
+            if(nearby == null || dist < cdist){
+                nearby = e;
+                cdist = dist;
+            }
+        });
+
+        return nearby;
+        
+        if(nearby != null){
+            float
+            angleX = Angles.trnsx(neckRot, neck.neckOffset + neck.neckLength + neck.headOffset + neck.eyeOffset),
+            angleY = Angles.trnsx(neckRot, neck.neckOffset + neck.neckLength + neck.headOffset + neck.eyeOffset),
+            pupilAngle = Angles.angle(angleX, angleY, nearby.x, nearby.y),
+            pupilDistance = Math.min(this.dst(nearby), neck.pupilDistance);
+            
+            newPupilX = Angles.trnsx(pupilAngle, pupilDistance);
+            newPupilY = Angles.trnsx(pupilAngle, pupilDistance);
+        }else if(moving()){
+            newPupilX = Angles.trnsx(neckRot, neck.pupilDistance);
+            newPupilY = Angles.trnsy(neckRot, neck.pupilDistance);
+        }else{
+            newPupilX = newPupilY = 0f;
+        }
+        
+        pupilX = newPupilX;
+        pupilY = newPupilY;
     }
     
     @Override
