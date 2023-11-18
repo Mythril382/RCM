@@ -66,8 +66,8 @@ public class NeckUnit extends LegsUnit{
             newPupilX = newPupilY = 0f;
         }
         
-        pupilX = newPupilX;
-        pupilY = newPupilY;
+        pupilX = Mathf.approachDelta(pupilX, newPupilX, neck.pupilSpeed);
+        pupilY = Mathf.approachDelta(pupilY, newPupilY, neck.pupilSpeed);
     }
     
     @Override
