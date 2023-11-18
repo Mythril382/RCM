@@ -53,7 +53,7 @@ public class NeckUnit extends LegsUnit{
         if(nearby != null){
             float
             angleX = Angles.trnsx(neckRot, neck.neckOffset + neck.neckLength + neck.headOffset + neck.eyeOffset),
-            angleY = Angles.trnsx(neckRot, neck.neckOffset + neck.neckLength + neck.headOffset + neck.eyeOffset),
+            angleY = Angles.trnsy(neckRot, neck.neckOffset + neck.neckLength + neck.headOffset + neck.eyeOffset),
             pupilAngle = Angles.angle(angleX, angleY, nearby.x, nearby.y),
             pupilDistance = Math.min(dst(nearby), neck.pupilDistance);
             
