@@ -47,8 +47,8 @@ public class NeckUnit extends LegsUnit{
             }
         }
         
-        nearby = null;
-        cdist = 0f;
+        Unit nearby = null;
+        float cdist = 0f;
         
         float range = tilesize * 10f;
         Units.nearby(null, x - range, y - range, range * 2f, range * 2f, e -> {
