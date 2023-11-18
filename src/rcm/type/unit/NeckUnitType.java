@@ -98,13 +98,11 @@ public class NeckUnitType extends UnitType{
             
             eyelids.each(e -> {
                 float
-                neckRot = neck.neckRot - 90f,
-                
                 blinkX = Mathf.lerp(e.openX, e.closeX, Interp.slope.apply(neck.blinkTime)),
                 blinkY = Mathf.lerp(e.openY, e.closeY, Interp.slope.apply(neck.blinkTime)),
                 
-                lx = ex + Angles.trnsx(neckRot, blinkX, blinkY),
-                ly = ey + Angles.trnsy(neckRot, blinkX, blinkY);
+                lx = ex + Angles.trnsx(neck.neckRot, blinkX, blinkY),
+                ly = ey + Angles.trnsy(neck.neckRot, blinkX, blinkY);
                 
                 Draw.rect(e.region, lx, ly, neck.neckRot);
             });
