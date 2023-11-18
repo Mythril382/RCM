@@ -133,7 +133,7 @@ public class NeckUnitType extends UnitType{
         hy = y2 + Angles.trnsy(neck.neckRot, headOffset),
 
         ex = hx + Angles.trnsx(neck.neckRot, eyeOffset),
-        ey = hy + Angles.trnsy(neck.neckRot, eyeOffset)
+        ey = hy + Angles.trnsy(neck.neckRot, eyeOffset);
         
         Lines.stroke(neckRegion.height * 0.25f);
         Lines.line(neckRegion, x, y, x2, y2, false);
