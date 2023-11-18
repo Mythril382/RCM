@@ -33,6 +33,8 @@ public class NeckUnitType extends UnitType{
     public float eyeOffset = 0f;
     /** Max distance the pupil can get to from its origin. */
     public float pupilDistance = 0f;
+    /** Pupil speed. */
+    public float pupilSpeed = 0.5f;
     /** Blink duration. */
     public float blinkTime = 0.2f;
     /** Eyelids. */
