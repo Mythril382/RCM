@@ -14,6 +14,7 @@ public class RCBlocks{
     public static Block
     cherryGrass, cherrySand, cherryWall, cherryDune, cherryTush,
     blueberrySnow, blueberryIce, blueberryWall,
+    blackberrySoil, blackberryWall,
     coreOutpost,
     transportDroneLoader, transportDroneUnloadPoint;
 
@@ -39,6 +40,12 @@ public class RCBlocks{
         }};
 
         blueberryWall = new StaticWall("blueberry-wall"){{
+            variants = 3;
+        }};
+
+        blackberrySoil = new Floor("blackberry-soil");
+
+        blackberryWall = new StaticWall("blackberry-wall"){{
             variants = 3;
         }};
         
